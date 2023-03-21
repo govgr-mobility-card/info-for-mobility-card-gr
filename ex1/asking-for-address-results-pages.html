@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>asking-for-address-results-pages – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-layout-wrapper govgr-layout-wrapper__full-height">
+  <div class="govgr-top">
+    <header class="govgr-header" role="banner" data-module="govgr-header">
+      <div class="govgr-header__container">
+        <div class="govgr-header__content">
+          <a class="govgr-header-link" href="#">
+            <img src="https://www.gov.gr/gov_gr_logo.svg" class="govgr-header-logo">
+          </a>
+          <a class="govgr-header-title" href="#">Αιτήσεις προς Δήμους</a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="govgr-width-container">
+    <div class="govgr-main-wrapper">
+      <main class="govgr-grid-column-two-thirds" id="main-content">
+        <a class="govgr-back-link" tabindex="0">
+          <svg class="govgr-caret--left govgr-svg-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M18,22V2L6,12L18,22z"></path></svg>
+            Πίσω
+        </a>
+        <h1 class="govgr-heading-xl">Ποια είναι η διεύθυνσή σας;</h1>
+        <dl class="govgr-summary-list">
+          <div class="govgr-summary-list__row">
+            <dt class="govgr-summary-list__key">Ταχυδρομικός κώδικας</dt>
+            <dd class="govgr-summary-list__value">16121</dd>
+            <dd class="govgr-summary-list__actions"><button class="govgr-link">Αλλαγή<span class="govgr-visually-hidden">Ταχυδρομικού κώδικα</span></button></dd>
+          </div>
+        </dl>
+        <h3 class="govgr-heading-m">Δήμος Καισαριανής</h3>
+        <p class="govgr-hint">Παρακαλούμε επιλέξτε τη διεύθυνσή σας.</p>
+        <form class="govgr-form">
+          <div class="govgr-field xs:govgr-grid__col-span-12 md:govgr-grid__col-span-12 lg:govgr-grid__col-span-12 xl:govgr-grid__col-span-12">
+            <label class="govgr-label">
+              <span class="govgr-heading-s">Οδός και Αριθμός</span>
+              <div class="govgr-autocomplete__wrapper govgr-!-width-full">
+                <div class="govgr-autocomplete--status__wrapper">
+                  <div class="govgr-autocomplete--status" role="status" aria-atomic="true" aria-live="polite" id="govgr__status--A"> </div>
+                  <div class="govgr-autocomplete--status" role="status" aria-atomic="true" aria-live="polite" id="govgr__status--B"> </div>
+                </div>
+                  <input class="govgr-autocomplete__input govgr-autocomplete__input--default" type="text" name="govgr-input-autocomplete" aria-expanded="false" aria-activedescendant="" aria-owns="govgr__listbox" aria-autocomplete="list" aria-describedby="govgr__assistiveHint" autocomplete="off" id="govgr" placeholder="" role="combobox" value="">
+                  <ul class="govgr-autocomplete__menu--overlay govgr-autocomplete__menu govgr-autocomplete__menu--hidden" id="govgr__listbox" role="listbox"></ul>
+                  <span class="govgr-autocomplete--assestive__hint" id="govgr__assistiveHint">
+                    When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.
+                  </span>
+              </div>
+            </label>
+          </div>
+          <button class="govgr-btn govgr-btn-primary" type="submit">Συνέχεια</button>
+        </form>
+        <details class="govgr-details">
+          <summary class="govgr-details__summary">Δεν βρήκατε τη διεύθυνσή σας;</summary>
+          <div class="govgr-details__summary-text"><p class="govgr-hint">Μπορείτε να συμπληρώσετε τα στοιχεία της διεύθυνσή σας στη φόρμα που ακολουθεί.</p>
+            <form class="govgr-form">
+              <fieldset class="govgr-fieldset">
+                <div class="govgr-field xs:govgr-grid__col-span-12 md:govgr-grid__col-span-12 lg:govgr-grid__col-span-12 xl:govgr-grid__col-span-12">
+                  <label class="govgr-label">
+                    <span class="govgr-heading-s">Οδός και Αριθμός</span>
+                    <input class="govgr-input" type="text" name="address" control="[object Object]" aria-required="false">
+                  </label>
+                </div>
+                <div class="govgr-field xs:govgr-grid__col-span-12 md:govgr-grid__col-span-12 lg:govgr-grid__col-span-12 xl:govgr-grid__col-span-12">
+                  <label class="govgr-label">
+                    <span class="govgr-heading-s">Περιοχή</span>
+                    <input class="govgr-input" type="text" name="region" control="[object Object]" aria-required="false">
+                  </label>
+                </div>
+                <div class="govgr-field xs:govgr-grid__col-span-12 md:govgr-grid__col-span-12 lg:govgr-grid__col-span-12 xl:govgr-grid__col-span-12">
+                  <label class="govgr-label">
+                    <span class="govgr-heading-s">Πόλη</span>
+                    <input class="govgr-input" type="text" name="city" control="[object Object]" aria-required="false">
+                  </label>
+                </div>
+              </fieldset>
+              <button class="govgr-btn govgr-btn-secondary" type="submit">Συνέχεια</button>
+            </form>
+          </div>
+        </details>
+      </main>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

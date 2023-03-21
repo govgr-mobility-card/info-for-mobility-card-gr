@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>drawer-right – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-layout-wrapper">
+  <header role="banner" data-module="govgr-header" class="govgr-admin-header">
+    <div class="govgr-admin-header__container">
+      <div class="govgr-admin-header__content">
+        <a href="https://www.gov.gr/" class="govgr-header-link">
+          <img src="https://www.gov.gr/gov_gr_logo.svg" class="govgr-header-logo" alt="gov.gr logo" >
+        </a>
+        <a href="/" class="govgr-header-title">
+          Drawer
+        </a>
+      </div>    
+      <button class="govgr-drawer__burger-icon govgr-btn-secondary govgr-btn">
+        <svg class="govgr-burger-icon govgr-svg-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><rect id="govgr-burger-icon__line-1" width="20" height="3.3"></rect><rect id="govgr-burger-icon__line-2" width="20" height="3.3"></rect><rect id="govgr-burger-icon__line-3" width="20" height="3.3"></rect></svg>
+      </button>        
+    </div>
+  </header>
+  <div class="govgr-admin-main-wrapper">
+    <div class="govgr-admin-side-content">
+      <div class="govgr-drawer__right govgr-drawer__side">
+        <div class="govgr-drawer__content">
+          <div class="govgr-drawer__header-container">
+            <h3 class="govgr-heading-m">Menu</h3>
+              <svg class="govgr-drawer__close-icon govgr-close-icon govgr-svg-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><polygon points="14.4,11.8 22,4.2 19.7,1.8 12,9.4 4.4,1.8 2,4.2 9.7,11.9 2.1,19.5 4.4,21.9 12.1,14.3 19.7,21.9 22.1,19.5 "></polygon></svg>
+          </div>
+          <ul class="govgr-list">
+            <li class="govgr-list__item">Menu option 1</li>
+            <li class="govgr-list__item">Menu option 2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="govgr-admin-main-content">
+      <div class="govgr-breadcrumbs">
+        <ol class="govgr-breadcrumbs__list">
+          <li class="govgr-breadcrumbs__list-item">
+            <a class="govgr-breadcrumbs__link" href="#">Home</a>
+          </li>
+          <li class="govgr-breadcrumbs__list-item">
+            <a class="govgr-breadcrumbs__link" href="#">Health and welfare</a>
+          </li>
+          <li class="govgr-breadcrumbs__list-item">
+            <a class="govgr-breadcrumbs__link" href="#">Health records</a>
+          </li>
+          <li class="govgr-breadcrumbs__list-item">
+            <a class="govgr-breadcrumbs__link" href="#">Intangible prescription</a>
+          </li>
+        </ol>
+      </div>
+      <span class="govgr-caption-xl"> Caption for h1 </span>
+      <h1 class="govgr-heading-xl">Heading 1 - Main title</h1>
+      <div class="govgr-card--border govgr-card">
+        <div class="govgr-card__body">
+          <div role="heading" aria-level="2" class="govgr-card__heading">This is a Card with border</div>
+          <div class="govgr-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        </div>
+      </div>
+      <div class="govgr-button-group">
+        <button class="govgr-btn govgr-btn-primary">
+          Save and continue
+        </button>
+        <button class="govgr-btn govgr-btn-secondary">Save as draft</button>
+      </div>
+      <span class="govgr-caption-l"> Caption for h2 </span>
+      <h2 class="govgr-heading-l">Heading 2</h2>
+      <span class="govgr-caption-m"> Caption for h3 </span>
+      <h3 class="govgr-heading-m">Heading 2</h3>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

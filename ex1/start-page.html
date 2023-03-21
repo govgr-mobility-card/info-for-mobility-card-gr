@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>start-page – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-layout-wrapper">
+   <div class="govgr-top">
+      <header role="banner" data-module="govgr-header" class="govgr-header">
+          <div class="govgr-header__container">
+            <div class="govgr-header__content">
+               <a href="https://www.gov.gr/" class="govgr-header-link">
+                <img src="https://www.gov.gr/gov_gr_logo.svg" class="govgr-header-logo" alt="gov.gr logo">
+              </a>
+              <a href="/" class="govgr-header-title">
+               My service
+              </a>
+            </div>            
+          </div>
+      </header>
+   </div>
+   <div class="govgr-width-container">
+      <div class="govgr-phase-banner govgr-phase-banner__underline">
+         <p class="govgr-phase-banner__content">
+            <strong class="govgr-tag govgr-phase-banner__content__tag">
+               alpha
+            </strong>
+            <span class="govgr-phase-banner__text">
+               This is a new page – your <a class="govgr-link" href="#">comments</a> will help us improve it.
+            </span>
+         </p>
+      </div>
+   </div>
+   <div class="govgr-width-container">
+      <div class="govgr-main-wrapper">
+         <main class="govgr-grid-column-two-thirds">
+            <h1 class="govgr-heading-xl">My service</h1>
+            <p class="govgr-body">Welcome to my service</p>
+          <button class="govgr-btn govgr-btn-primary govgr-btn-cta">
+           Start here
+           <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true"> <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z"/> </svg>
+          </button>
+         </main>
+         <aside class="govgr-grid-column-one-third">
+            <h2 class="govgr-heading-s">Useful links</h2>
+           <a class="govgr-link" href="#"> links</a>
+         </aside>
+      </div>
+   </div>
+   <!-- Note: In some cases the height of the content is smaller than the height of the viewport especially in desktop screens. As a result, the footer of the page will stick to the middle of the screen which is not ideal for the user experience. To fix that, you can use the .govgr-layout-wrapper__full-height CSS utility class combined with .govgr-layout-wrapper. -->
+   <div class="govgr-bottom">
+      <footer class="govgr-footer">
+         <div class="govgr-width-container">
+            <div class="govgr-footer__meta">
+              <div class="govgr-footer__meta-item--grow govgr-footer__meta-item">
+                <div class="govgr-footer__content">
+                 <p class="govgr-footer__licence-description">Powered by 
+                     <a href="https://grnet.gr/" target="_blank" rel="noreferrer noopener" class="govgr-link"> GRNET<span class="govgr-visually-hidden">(opens in a new tab) </span></a> for the <a href="https://mindigital.gr/" target="_blank" rel="noreferrer noopener" class="govgr-link"> Ministry of Digital Governance <span class="govgr-visually-hidden">(opens in a new tab) </span></a>
+                  </p>
+                </div>
+              </div>
+              <div class="govgr-footer__meta-item">
+                <img class="govgr-footer__government-logo" src="/img/government-logo2.svg" alt="government logo"/>
+              </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

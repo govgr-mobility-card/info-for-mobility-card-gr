@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dropdown-position – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-button-group">
+  
+  <details class="govgr-dropdown">
+    <summary class="govgr-dropdown__button govgr-btn govgr-btn-secondary"> 
+      Ενέργειες
+      <svg aria-hidden="true" class="govgr-svg-icon govgr-arrow--down" focusable="false" viewBox="0 0 24 24"><path d="M22,8.2l-2.3-2.4L12,13.4L4.4,5.8L2,8.2l10,10L22,8.2z"/></svg>
+    </summary>
+    <div class="govgr-dropdown__content">
+      <p class="govgr-body">
+        Χρειάζεται να γνωρίζουμε τη διεύθυνση κατοικίας σας ώστε να μπορούμε να σας στείλουμε τα έντυπα μέσω ταχυδρομείου. Σε περίπτωση που δεν μπορείτε να παρέχετε μια έγκυρη διεύθυνση κατοικίας, παρακαλούμε επικοινωνήστε μαζί μας.
+      </p>
+    </div>
+  </details>
+  
+  <details class="govgr-dropdown govgr-dropdown--up">
+    <summary class="govgr-dropdown__button govgr-btn govgr-btn-secondary"> 
+      Ενέργειες
+      <svg aria-hidden="true" class="govgr-svg-icon govgr-svg-icon--more-vert" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="12" cy="19" r="2" /></svg>
+    </summary>
+    <div class="govgr-dropdown__content">
+      <nav class="govgr-vertical-nav">
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Επεξεργασία </a>
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Μετακίνηση </a>
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Οριστική διαγραφή</a>
+      </nav>
+    </div>
+  </details>
+
+  <details class="govgr-dropdown govgr-dropdown--left">
+    <summary class="govgr-dropdown__button govgr-btn govgr-btn-secondary"> 
+      Δημιουργία
+      <svg aria-hidden="true" class="govgr-svg-icon govgr-svg-icon--more-vert" focusable="false" viewBox="0 0 24 24"><rect id="govgr-burger-icon__line-1" width="20" height="3.3" /> <rect id="govgr-burger-icon__line-2" width="20" height="3.3" /> <rect id="govgr-burger-icon__line-3" width="20" height="3.3" /></svg>
+    </summary>
+    <div class="govgr-dropdown__content">
+      <div class="govgr-field">
+        <label class="govgr-label">
+          <span>Όνομα επιχείρησης</span>
+          <input class="govgr-input" type="text"  name="business-name" />
+        </label>
+      </div>
+      <hr class="govgr-section-break govgr-section-break--s govgr-section-break--visible"/>
+      <nav class="govgr-vertical-nav">
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Επεξεργασία </a>
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Μετακίνηση </a>
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Οριστική διαγραφή</a>
+      </nav>
+      <hr class="govgr-section-break govgr-section-break--s"/>
+      <hr class="govgr-section-break govgr-section-break--s govgr-section-break--visible"/>
+      <button class="govgr-btn govgr-btn-primary">Αποθήκευση</button>
+    </div>
+  </details>
+
+  <details class="govgr-dropdown govgr-dropdown--up govgr-dropdown--left">
+    <summary class="govgr-dropdown__button govgr-btn govgr-btn-secondary"> 
+    <svg aria-hidden="true" class="govgr-svg-icon govgr-svg-icon--caret" focusable="false" viewBox="0 0 24 24"><path d="M22,6H2l10,12L22,6z" /></svg>
+    </summary>
+    <div class="govgr-dropdown__content">
+      <nav class="govgr-vertical-nav">
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Επεξεργασία </a>
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Μετακίνηση </a>
+        <a href="#" class="govgr-link govgr-vertical-nav__item"> Οριστική διαγραφή</a>
+      </nav>
+    </div>
+  </details>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

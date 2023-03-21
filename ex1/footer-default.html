@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>footer-default – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<footer class="govgr-footer" role="contentinfo">
+  <div class="govgr-width-container">
+    <div class="govgr-footer__meta">
+      <div class="govgr-footer__meta-item govgr-footer__meta-item--grow">
+        <div class="govgr-footer__content">
+          <p class="govgr-footer__licence-description">
+             Υλοποίηση από το 
+            <a href="https://grnet.gr" target="_blank" rel="noreferrer noopener" class="govgr-link">ΕΔΥΤΕ<span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a> για το
+            <a href="https://mindigital.gr/" target="_blank" rel="noreferrer noopener" class="govgr-link"> Υπουργείο Ψηφιακής Διακυβέρνησης <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
+          </p>
+        </div>
+      </div>
+      <div class="govgr-footer__meta-item">
+        <img class="govgr-footer__government-logo" src="/img/government-logo2.svg" alt="government logo" />
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

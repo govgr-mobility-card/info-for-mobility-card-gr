@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>details – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<details class="govgr-details">
+  <summary class="govgr-details__summary"> Βοήθεια με διεύθυνση κατοικίας</summary>
+  <div class="govgr-details__summary-text">
+    <p class="govgr-body">
+      Χρειάζεται να γνωρίζουμε τη διεύθυνση κατοικίας σας ώστε να μπορούμε να σας στείλουμε τα έντυπα μέσω ταχυδρομείου. Σε περίπτωση που δεν μπορείτε να παρέχετε μια έγκυρη διεύθυνση κατοικίας, παρακαλούμε επικοινωνήστε μαζί μας.
+    </p>
+  </div>
+</details>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

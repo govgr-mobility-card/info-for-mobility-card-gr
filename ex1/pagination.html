@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>pagination – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+      <nav class="govgr-pagination" >
+        <p class="govgr-pagination__label">Εμφανίζονται <b>10</b> έως <b>20</b> από <b>30</b> αποτελέσματα</p>
+        <ul class="govgr-pagination__list">
+          <li class="govgr-pagination__item govgr-pagination__item--inactive">
+            <a class="govgr-link" href="">
+              <svg
+                aria-hidden="true"
+                class=" govgr-svg-icon govgr-arrow--left"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.8,22l2.4-2.3L9.6,12l7.6-7.6L14.8,2l-10,10L14.8,22z"
+                />
+              </svg>Προηγούμενο<span class="govgr-visually-hidden"> σύνολο αποτελεσμάτων</span></a>
+          </li>
+          <li class="govgr-pagination__item govgr-pagination__item--current">1</li>
+          <li class="govgr-pagination__item"><a class="govgr-link" href="/page=1">2</a></li>
+          <li class="govgr-pagination__item"><a class="govgr-link" href="/page=3">3</a></li>
+          <li class="govgr-pagination__item govgr-pagination__item--dots">...</li>
+          <li class="govgr-pagination__item"><a class="govgr-link" href="/page=5">5</a></li>
+          <li class="govgr-pagination__item">
+            <a class="govgr-link" href="">Επόμενο<span class="govgr-visually-hidden"> σύνολο αποτελεσμάτων</span>
+              <svg
+                aria-hidden="true"
+                class=" govgr-svg-icon govgr-arrow--right"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z"
+                />
+              </svg></a>
+          </li>
+        </ul>
+      </nav>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

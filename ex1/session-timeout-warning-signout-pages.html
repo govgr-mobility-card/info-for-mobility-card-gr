@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>session-timeout-warning-signout-pages – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-layout-wrapper govgr-layout-wrapper__full-height">
+  <div class="govgr-top">
+    <header class="govgr-header" role="banner" data-module="govgr-header">
+      <div class="govgr-header__container">
+        <div class="govgr-header__content">
+          <a class="govgr-header-link" href="#">
+            <img src="https://www.gov.gr/gov_gr_logo.svg" class="govgr-header-logo">
+          </a>
+          <a class="govgr-header-title" href="#">Τίτλος υπηρεσίας</a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="govgr-width-container">
+    <div class="govgr-main-wrapper">
+      <main class="govgr-grid-column-two-thirds" id="main-content">
+        <h1 class="govgr-heading-xl">Για τη δική σας ασφάλεια, έχετε αποσυνδεθεί από την υπηρεσία </h1>
+        <p class="govgr-body">
+          Αποσυνδεθήκατε αυτόματα επειδή η συνεδρία σας έχει λήξει.
+          Σε περίπτωση που θέλετε να επιστρέψετε στην εφαρμογή, μπορείτε να συνδεθείτε ξανά.
+        <p>
+        <button class="govgr-btn govgr-btn-primary govgr-print-hidden">Σύνδεση</button>      
+      </main>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

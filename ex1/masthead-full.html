@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>masthead-full – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-masthead govgr-background-dark">
+  <div class="govgr-width-container">
+    <div class="govgr-main-wrapper">
+      <div class="govgr-grid-column-two-thirds">
+        <img class="govgr-masthead-logo header-logo" src="https://dilosi.services.gov.gr/minedu-logo.svg" alt="minedu logo" />
+        <h1 class="govgr-heading-xl"> Σχεδιάστε την υπηρεσία σας, με το στυλ του GOV.GR </h1>
+        <p class="govgr-masthead-body">
+          Χρησιμοποιείστε αυτόν τον οδηγό ώστε να φτιάξετε μια υπηρεσία συνεπή στα πρότυπα του GOV.GR. Αποκτήστε γνώση από την έρευνα και την εμπειρία άλλων ομάδων και αποφύγετε την επανάληψη εργασιών που έχουν ήδη γίνει.
+        <a class="govgr-link" href="#">Μάθετε αν είστε δικαιούχος</a>
+        </p>
+        <p class="govgr-hint">Τελευταία ενημέρωση: 08/12/2021 </p>
+        <button class="govgr-btn govgr-btn-primary govgr-btn-cta">
+          Ξεκινήστε εδώ
+          <svg viewBox="0 0 24 24" class="govgr-arrow--right govgr-svg-icon" focusable="false" aria-hidden="true"> <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z"/> </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>loader – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-layout-wrapper govgr-layout-wrapper__full-height">
+  <div class="govgr-full-page-background">
+    <div class="govgr-loader__container">
+    <svg class="govgr-loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path class="govgr-loader__circle govgr-loader__circle--1" d="M26,99.551C26,55.478,60.246,27.5,99.85,27.5S174,55.478,174,99.551,139.455,172.5,99.85,172.5C60.273,172.473,26,143.6,26,99.551Z"></path><path class="govgr-loader__circle govgr-loader__circle--2" d="M26,99.551C26,55.478,60.246,27.5,99.85,27.5S174,55.478,174,99.551,139.455,172.5,99.85,172.5C60.273,172.473,26,143.6,26,99.551Z"></path></svg>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

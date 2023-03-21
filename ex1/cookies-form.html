@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>cookies-form – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+
+<fieldset class="govgr-fieldset">
+  <legend class="govgr-heading-xl govgr-fieldset__legend">
+    Change your cookie settings
+  </legend>
+      
+  <fieldset class="govgr-fieldset">
+    <legend class="govgr-heading-l govgr-fieldset__legend">
+      Do you want to accept functional cookies?
+    </legend>
+    <div class="govgr-radios">
+      <div class="govgr-radios__item">
+        <label class="govgr-label govgr-radios__label">
+          Yes
+          <input type="radio" name="functional-use" value="use-functional-cookies" class="govgr-radios__input">
+        </label>
+      </div>
+      <div class="govgr-radios__item">
+        <label class="govgr-label govgr-radios__label">
+          No
+          <input type="radio" name="functional-use" value="do-not-use-functional-cookies" class="govgr-radios__input" checked>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="govgr-fieldset">
+    <legend class="govgr-heading-l govgr-fieldset__legend">
+      Do you want to accept analytics cookies?
+    </legend>
+    <div class="govgr-radios">
+      <div class="govgr-radios__item">
+        <label class="govgr-label govgr-radios__label">
+          Yes
+          <input type="radio" name="analitycs-use" value="use-analitycs-cookies" class="govgr-radios__input">
+        </label>
+      </div>
+      <div class="govgr-radios__item">
+        <label class="govgr-label govgr-radios__label">
+          No
+          <input type="radio" name="analitycs-use" value="do-not-use-analitycs-cookies" class="govgr-radios__input" checked>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+  <button class="govgr-btn govgr-btn-primary">Save cookie settings</button>
+</fieldset>
+
+
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

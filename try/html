@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Data from JSON with jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var currentIndex = 0;
+      var data;
+
+      // Get the data from the JSON file
+      $.getJSON("data.json", function(json) {
+        data = json;
+      });
+
+      // Add a click event listener to the button element
+      $("button").click(function() {
+        if (currentIndex < data.length) {
+          // Get the current object from the data array
+          var obj = data[currentIndex];
+
+          // Create a new paragraph element with the object's information
+          var question = $("<p>").text("Name: " + obj.name + ", Email: " + obj.email);
+
+          // Append the paragraph to the content element
+          $("#content").append(question);
+
+          // Increment the current index
+          currentIndex++;
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Get Data from JSON with jQuery</h1>
+  
+  <button>Click to Show Data</button>
+  
+  <div id="content"></div>
+</body>
+</html>

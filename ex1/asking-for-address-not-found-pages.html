@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>asking-for-address-not-found-pages – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-layout-wrapper govgr-layout-wrapper__full-height">
+  <div class="govgr-top">
+    <header class="govgr-header" role="banner" data-module="govgr-header">
+      <div class="govgr-header__container">
+        <div class="govgr-header__content">
+          <a class="govgr-header-link" href="#">
+            <img src="https://www.gov.gr/gov_gr_logo.svg" class="govgr-header-logo">
+          </a>
+          <a class="govgr-header-title" href="#">Αιτήσεις προς Δήμους</a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="govgr-width-container">
+    <div class="govgr-main-wrapper">
+      <main class="govgr-grid-column-two-thirds" id="main-content">
+        <a class="govgr-back-link" tabindex="0">
+          <svg class="govgr-caret--left govgr-svg-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M18,22V2L6,12L18,22z"></path></svg>
+          Πίσω
+        </a>
+        <h1 class="govgr-heading-xl">Σχετικά με την περιοχή σας</h1>
+        <dl class="govgr-summary-list">
+          <div class="govgr-summary-list__row">
+            <dt class="govgr-summary-list__key">Δήμος</dt>
+            <dd class="govgr-summary-list__value">Καισαριανής</dd>
+          </div>
+          <div class="govgr-summary-list__row">
+            <dt class="govgr-summary-list__key">Διεύθυνση</dt>
+            <dd class="govgr-summary-list__value">Αδάνων</dd>
+          </div>
+          <div class="govgr-summary-list__row">
+            <dt class="govgr-summary-list__key">Ταχυδρομικός κώδικας</dt>
+            <dd class="govgr-summary-list__value">16121</dd>
+          </div>
+        </dl>
+        <p class="govgr-body">
+        <div class="govgr-warning-text"><span class="govgr-warning-text__icon">!</span><strong class="govgr-warning-text__text"><span class="govgr-warning-text__assistive">Προσοχή</span>Η περιοχή σας δεν έχει ενταχθεί στο gov.gr.</strong></div>
+        </p>
+        <details class="govgr-details">
+          <summary class="govgr-details__summary">Επόμενα βήματα</summary>
+          <div class="govgr-details__summary-text">
+            <p class="govgr-hint">Μπορείτε να απευθυνθείτε στο ΚΕΠ της περιοχής σας, προκειμένου να συμπληρώσετε την αίτησή σας.</p>
+          </div>
+        </details>
+      </main>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

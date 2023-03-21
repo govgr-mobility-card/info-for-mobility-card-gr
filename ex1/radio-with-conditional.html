@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>radio-with-conditional – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-field">
+  <fieldset class="govgr-fieldset" aria-describedby="radio-contact">
+    <legend class="govgr-fieldset__legend govgr-heading-m">
+      Πώς προτιμάτε να επικοινωνήσουμε μαζί σας;
+    </legend>
+    <p class="govgr-hint">Επιλέξτε ό,τι ισχύει στην περίπτωση σας.</p>
+    <div class="govgr-radios">
+      <div class="govgr-radios__item">
+        <label class="govgr-label govgr-radios__label">
+          Ηλεκτρονικό ταχυδρομείο
+          <input class="govgr-radios__input" type="radio" name="contact" checked="true" value="email" data-aria-controls="conditional-contact-email"/>
+        </label>
+      </div>
+      <div class="govgr-radios__conditional" id="conditional-contact-email">
+        <div class="govgr-field">
+          <label class="govgr-label">
+           <span>Διεύθυνση ηλεκτρονικού ταχυδρομείου</span>
+           <input class="govgr-input govgr-!-width-one-third" name="contact-by-email" type="text" spellcheck="false" autocomplete="email"/>
+          </label>
+        </div>
+      </div>
+      <div class="govgr-radios__item">
+        <label class="govgr-label govgr-radios__label">
+          Τηλέφωνο
+          <input class="govgr-radios__input" type="radio" name="contact" value="phone" data-aria-controls="conditional-contact-phone" />
+        </label>
+      </div>
+      <div class="govgr-radios__conditional govgr-radios__conditional--hidden" id="conditional-contact-phone">
+        <div class="govgr-field">
+          <label class="govgr-label">
+            Τηλέφωνο
+            <input class="govgr-input govgr-!-width-one-third" name="contact-by-phone" type="phone" spellcheck="false" autocomplete="phone"/>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

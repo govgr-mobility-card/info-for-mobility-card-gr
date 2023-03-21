@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>error-summary-full-example – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<a href="#" class="govgr-back-link">
+	<svg class="govgr-caret--left" viewBox="0 0 24 24" aria-hidden="true"><path d="M18,22V2L6,12L18,22z"/></svg>
+  Πίσω
+</a>
+<div class="govgr-error-summary">
+  <h3 class="govgr-heading-s">Υπήρξε κάποιο πρόβλημα</h3>
+  <a class="govgr-link" href="#b-year2"> Πρέπει να συμπληρώσετε το έτος</a>
+</div>
+<div class="govgr-field govgr-field__error">
+  <fieldset class="govgr-fieldset">
+    <legend >
+      <h4 class="govgr-heading-m form-question" >Ποιά είναι η ημερομηνία γέννησης σας;</h4>
+    </legend>
+    <p class="govgr-hint">Για παράδειγμα, 05 11 2020</p>
+    <p class="govgr-error-message" > Η ημερομηνία γέννησης πρέπει να έχει έτος. </p>
+    <div class="govgr-date-input">
+      <div class="govgr-date-input__item">
+        <label class="govgr-label" for="b-day">Ημέρα</label>
+        <input class="govgr-input govgr-input--width-2" type="text" pattern="[0-9]*" inputMode="numeric" id="b-day2" name="b-day" autoComplete="bday-day" /><br /><br />
+      </div>
+      <div class="govgr-date-input__item">
+        <label class="govgr-label" for="b-month">Μήνας</label>
+        <input class="govgr-input govgr-input--width-2" type="text" pattern="[0-9]*" inputMode="numeric" id="b-month2" name="b-month" autoComplete="bday-month" /><br /><br />
+      </div>
+      <div class="govgr-date-input__item">
+        <label class="govgr-label" for="b-year">Έτος</label>
+        <input class="govgr-input govgr-input--width-4 govgr-error-input" type="text" pattern="[0-9]*" inputMode="numeric" id="b-year2" name="b-year" autoComplete="bday-year" /><br /><br />
+      </div>
+    </div>
+  </fieldset>
+</div>
+<button class="govgr-btn govgr-btn-primary">Συνέχεια</button>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

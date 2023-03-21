@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>table-container-border – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-table-container govgr-table-container--border">
+  <table class="govgr-table--zebra govgr-table--dense govgr-table--dark govgr-table">
+    <thead class="govgr-table__head">
+      <tr class="govgr-table__row">
+        <th class="govgr-table__header" scope="col">Όχημα</th>
+        <th class="govgr-table__header" scope="col">Ιανουάριος</th>
+        <th class="govgr-table__header" scope="col">Φεβρουάριος</th>
+        <th class="govgr-table__header" scope="col">Μάρτιος</th>
+        <th class="govgr-table__header" scope="col">Απρίλιος</th>
+        <th class="govgr-table__header" scope="col">Μάιος</th>
+        <th class="govgr-table__header" scope="col">Ιούνιος</th>
+        <th class="govgr-table__header" scope="col">Ιούλιος</th>
+        <th class="govgr-table__header" scope="col">Αύγουστος</th>
+        <th class="govgr-table__header" scope="col">Σεπτέμβριος</th>
+        <th class="govgr-table__header" scope="col">Οκτώβριος</th>
+        <th class="govgr-table__header" scope="col">Νοέμβριος</th>
+        <th class="govgr-table__header" scope="col">Δεκέμβριος</th>
+      </tr>
+    </thead>
+    <tbody class="govgr-table__body">
+      <tr class="govgr-table__row">
+        <td class="govgr-table__cell">Μηχανή</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+        <td class="govgr-table__cell">€69.80</td>
+      </tr>
+      <tr class="govgr-table__row">
+        <td class="govgr-table__cell">Αυτοκίνητο</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+        <td class="govgr-table__cell">€109.80</td>
+      </tr>
+      <tr class="govgr-table__row">
+        <td class="govgr-table__cell">Φορτηγό</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+        <td class="govgr-table__cell">€139.80</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

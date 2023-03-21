@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>theme-preview – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-field">
+  <fieldset class="govgr-fieldset">
+    <legend role="heading" aria-level="1" class="govgr-fieldset__legend govgr-heading-l">
+      Τίτλος
+    </legend>
+    <p class="govgr-body">Κείμενο με<a class="govgr-link" href="#"> σύνδεσμο</a></p>
+    <div class="govgr-checkboxes">
+      <div class="govgr-checkboxes__item">
+        <label class="govgr-label govgr-checkboxes__label">
+          Επιλογή
+          <input
+            class="govgr-checkboxes__input"
+            type="checkbox"
+            name="check-option"
+            value="check-option"
+          />
+        </label>
+      </div>      
+    </div>
+  </fieldset>
+</div>
+<button class="govgr-btn govgr-btn-primary">Συνέχεια</button>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>

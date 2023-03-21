@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>admin-layout – Example – GOV.GR Design System</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" media="all" />
+      <link href="https://cdn.jsdelivr.net/npm/@digigov/css@0.31.0/dist/digigov.css" rel="stylesheet" media="all" />
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body style="padding: 16px">
+	
+<div class="govgr-admin-layout-wrapper">
+  <header role="banner" data-module="govgr-header" class="govgr-admin-header">
+      <div class="govgr-admin-header__container">
+        <div class="govgr-admin-header__content">
+          <a href="https://www.gov.gr/" class="govgr-header-link">
+            <img src="https://www.gov.gr/gov_gr_logo.svg" class="govgr-header-logo" alt="gov.gr logo" >
+          </a>
+          <a href="/" class="govgr-header-title">
+            Basic admin layout
+          </a>
+        </div>            
+      </div>
+  </header>
+  <div class="govgr-admin-width-container">
+    <div class="govgr-admin-main-wrapper">
+      <div class="govgr-admin-side-content">
+        <a class="govgr-back-link" href="#"><svg class="govgr-caret--left govgr-svg-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M18,22V2L6,12L18,22z"></path></svg>
+        Back to task manager
+        </a>
+        <h4 class="govgr-heading-s">Useful links</h4>
+        <nav class="govgr-vertical-nav">
+          <a class="govgr-link govgr-vertical-nav__item govgr-vertical-nav__item--active" href="#"> Link 1</a>
+          <a class="govgr-link govgr-vertical-nav__item" href="#"> Link 2</a>
+          <a class="govgr-link govgr-vertical-nav__item" href="#"> Link 3</a>
+        </nav>
+      </div>
+      <div class="govgr-admin-main-content">
+
+        <span class="govgr-caption-xl"> Caption for h1 </span>
+        <h1 class="govgr-heading-xl">Heading 1 - Main title</h1>
+        <p class="govgr-body">
+          The admin layout is used <span class="govgr-!-font-weight-bold">  only on admin interfaces and internal systems </span>  to let service teams and government officials manage work. 
+        </p>
+        <div class="govgr-button-group">
+          <button class="govgr-btn govgr-btn-primary">
+            New task
+          </button>
+          <button class="govgr-btn govgr-btn-secondary">Task list</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="govgr-admin-footer" role="contentinfo">
+    <div class="govgr-admin-width-container">
+      <div class="govgr-footer__meta">
+        <div class="govgr-footer__meta-item govgr-footer__meta-item--grow">
+          <div class="govgr-footer__content">
+            <p class="govgr-footer__licence-description">
+             Υλοποίηση από το 
+            <a href="https://grnet.gr" target="_blank" rel="noreferrer noopener" class="govgr-link">ΕΔΥΤΕ<span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a> για το
+            <a href="https://mindigital.gr/" target="_blank" rel="noreferrer noopener" class="govgr-link"> Υπουργείο Ψηφιακής Διακυβέρνησης <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
+          </p>
+          </div>
+        </div>
+        <div class="govgr-footer__meta-item">
+          <img class="govgr-footer__government-logo" src="/img/government-logo2.svg" alt="government logo" />
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+  let paramString = window.location.href.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  if (queryString.get('pattern')) {
+    document.body.style.padding = '0px';
+  }
+  if (queryString.get('dark')) {
+      document.documentElement.className = 'dark';
+  }
+})
+</script>
+
+</html>
