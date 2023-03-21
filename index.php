@@ -1,6 +1,4 @@
-<?php 
-  include "components/question.php";
-?>
+
 
 <!doctype html>
 <html lang="el">
@@ -9,47 +7,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <title>GOV.GR</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" crossorigin="anonymous">
     <!-- Digigov CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@digigov/css@latest/dist/digigov.css" rel="stylesheet" crossorigin="anonymous">
     
     <!-- JQuery -->
-    <script src="jquery-3.6.1.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $("document").ready(function(){
-        var currentIndex = 0;
-        var data;
+        var currentQuestion = 0;
+        //var totalQuestions = <?php // echo count($questions); ?>;
+        function loadQuestion(questionId) {
+          $.ajax({
+            url: 'question-utils/question.php',
+            type: 'GET',
+            data: {id: questionId},
+            success: function(response) {
+              $('.question-container').html(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.log('Error loading question: ' + errorThrown);
+            }
+          });
+        }
 
-        // Get the data from the JSON file
-        $.getJSON("questions.json", function(json) {
-          
-          data = json;
+        $('#nextQuestion').click(function() {
+          currentQuestion++;
+          // if (currentQuestion >= totalQuestions) {
+          //   currentQuestion = 0;
+          // }
+          loadQuestion(currentQuestion);
         });
 
-        // Add a click event listener to the button element
-        $("#nextQuestion").click(function() {
-          if (currentIndex < data.length) {
-            // Get the current object from the data array
-            var obj = data[currentIndex];
-            
-
-            <?php $q = question("2", "mplampla2", ["2","3"]); ?>
-
-            // Append the q to the content element
-            $(".questions-container").html("aa");
-
-            // Increment the current index
-            currentIndex++;
-          }
-        });
-
-        $.ajax({
-          type: "POST",
-          url:"components/question.php",
-          data: {functionname:"question"}
-        })
+        // Load the first question on page load
+        loadQuestion(currentQuestion);
       });
   </script>
   </head>
@@ -70,10 +62,7 @@
           </p>
         </div>
       </div>
-      <div class="questions-container">
-        <?php 
-          question("1", "mplampla", ["1","2"]);
-        ?>
+      <div class="question-container">
   
       </div>
       <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
@@ -94,7 +83,7 @@
             </div>
           </div>
           <div class="govgr-footer__meta-item">
-            <img class="govgr-footer__government-logo" src="static/img/government-logo2.svg" alt="government logo" />
+            <!-- <img class="govgr-footer__government-logo" src="static/img/government-logo2.svg" alt="government logo" /> -->
           </div>
         </div>
       </div>
