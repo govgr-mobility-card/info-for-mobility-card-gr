@@ -3,15 +3,21 @@
   // Load the JSON data from the file
   $questionsJson = file_get_contents($questionsFilePath);
   $questions = json_decode($questionsJson, true);
-
+  
   function getQuestionById($id) {
     global $questions;
     foreach ($questions as $question) {
       if ($question['id'] == $id) {
         return $question;
       }
-    }
+  }
     return null;
+  }
+
+  function getQuestions(){
+    global $questions;
+    $count = count($questions);
+    return $count;
   }
 
   function question($id) {
