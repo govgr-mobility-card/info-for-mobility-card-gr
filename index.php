@@ -19,6 +19,7 @@
     $("document").ready(function() {
         var currentQuestion = 0;
         var totalQuestions = 0;
+        var userAnswers = {};
 
         function loadQuestion(questionId) {
             $.ajax({
@@ -52,7 +53,6 @@
             });
         }
 
-
         function getQuestions(c) {
             $.ajax({
                 url: 'question-utils/totalQuestions.php',
@@ -69,15 +69,32 @@
             });
         }
 
+        function retrieveAnswers() {
+            var allAnswers = [];
+            for (var i = 0; i < totalQuestions; i++) {
+                var answer = sessionStorage.getItem("answer_" + i);
+                allAnswers.push(answer);
+            }
+            console.log(allAnswers); // display all answers in console
+        }
+
         $('#nextQuestion').click(function() {
 
             if( $('.govgr-radios__input').is(':checked') ){
+                
+                var answer = $('input[name="question-option"]:checked').val();
+                userAnswers[currentQuestion] = answer;
+                sessionStorage.setItem("answer_" + currentQuestion, answer); // save answer to session storage
+
                 if (currentQuestion + 1 == totalQuestions) {
                     //click submit button
                     alert('submit');
+                    // retrieve all answers when user submits
+                    retrieveAnswers(); 
                 } else {
                     currentQuestion++;
                     loadQuestion(currentQuestion);
+
                     if (currentQuestion + 1 == totalQuestions) {
                         $(this).text('Υποβολή');
                     }
@@ -129,13 +146,12 @@
                 <div class="govgr-footer__meta-item govgr-footer__meta-item--grow">
                     <div class="govgr-footer__content">
                         <p class="govgr-footer__licence-description">
-                            Υλοποίηση από το
-                            <a href="https://grnet.gr" target="_blank" rel="noreferrer noopener" 
-                                class="govgr-link">ΕΔΥΤΕ<span class="govgr-visually-hidden">
-                                (ανοίγει σε καινούρια καρτέλα)</span></a> για το
-                            <a href="https://mindigital.gr/" target="_blank" rel="noreferrer noopener" 
-                                class="govgr-link"> Υπουργείο Ψηφιακής Διακυβέρνησης 
-                                <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
+                            Υλοποίηση από τις φοιτήτριες της Εφαρμοσμένης Πληροφορικής: <a href="https://github.com/ElisavetAmpatzidou" target="_blank" rel="noreferrer noopener" 
+                            class="govgr-link">Αμπατζίδου Ελισάβετ <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
+                            και <a href="https://github.com/evitadasy" target="_blank" rel="noreferrer noopener" 
+                            class="govgr-link">Δασύρα Ευμορφία Ελπίδα 
+                           <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
+                            για την εκπόνηση πτυχιακής εργασίας.
                         </p>
                     </div>
                 </div>
