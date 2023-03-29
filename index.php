@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>ΔΕΛΤΙΟ ΜΕΤΑΚΙΝΗΣΗΣ ΑΜΕΑ</title>
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" crossorigin="anonymous">
-    
+
     <!-- Digigov CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@digigov/css@latest/dist/digigov.css" rel="stylesheet"
         crossorigin="anonymous">
-
+    <link rel="stylesheet" href="styles.css">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -80,6 +81,7 @@
 
         $('#nextQuestion').click(function() {
 
+
             if( $('.govgr-radios__input').is(':checked') ){
                 
                 var answer = $('input[name="question-option"]:checked').val();
@@ -99,8 +101,7 @@
                         $(this).text('Υποβολή');
                     }
                 }
-            }
-            else {
+            } else {
                 loadErrorQuestion(currentQuestion);
             }
         });
@@ -122,16 +123,29 @@
             </div>
         </div>
     </header>
-    <div class="govgr-width-container">
+    <div class="mask" id="mask-up"></div>
+    <div class="mask" id="mask-bottom"></div>
+    <nav id="accessibility-menu">
+        <ul>
+            <li><button id="font-size-button">Big Font Size</button></li>
+            <li><button id="contrast-button">Change Contrast</button></li>
+            <li><button id="reading-mask-button">Reading Mask</button></li>
+            <li><button id="cursor-button">Bigger Cursor</button></li>
+            <li><button id="read-aloud-button">Read Aloud</button>
+        </ul>
+    </nav>
+
+    <div class="govgr-width-container" id="content">
         <div class="govgr-main-wrapper">
             <div class="govgr-grid-column-two-thirds">
                 <h1 class="govgr-heading-xl">Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023</h1>
-                <p class="govgr-body">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
+                <p class="govgr-body">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε
+                    πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
                 </p>
             </div>
         </div>
         <div class="question-container">
-        <!-- here we load the question with JQuery, AJAX -->
+            <!-- here we load the question with JQuery, AJAX -->
         </div>
         <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
             Επόμενη ερώτηση
@@ -146,6 +160,7 @@
                 <div class="govgr-footer__meta-item govgr-footer__meta-item--grow">
                     <div class="govgr-footer__content">
                         <p class="govgr-footer__licence-description">
+
                             Υλοποίηση από τις φοιτήτριες της Εφαρμοσμένης Πληροφορικής: <a href="https://github.com/ElisavetAmpatzidou" target="_blank" rel="noreferrer noopener" 
                             class="govgr-link">Αμπατζίδου Ελισάβετ <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
                             και <a href="https://github.com/evitadasy" target="_blank" rel="noreferrer noopener" 
@@ -162,7 +177,7 @@
         </div>
     </footer>
 </body>
-
+<script type="text/javascript" src="accessibility-menu-functions.js"></script>
 <script>
 // window.addEventListener('DOMContentLoaded', function(e) {
 //     let paramString = window.location.href.split('?')[1];
