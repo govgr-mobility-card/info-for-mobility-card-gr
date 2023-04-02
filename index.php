@@ -14,103 +14,112 @@
     <link href="https://cdn.jsdelivr.net/npm/@digigov/css@latest/dist/digigov.css" rel="stylesheet"
         crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap, Ajax -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <script>
-    $("document").ready(function() {
-        var currentQuestion = 0;
-        var totalQuestions = 0;
-        var userAnswers = {};
+        $("document").ready(function() {
+            var currentQuestion = 0;
+            var totalQuestions = 0;
+            var userAnswers = {};
 
-        function loadQuestion(questionId) {
-            $.ajax({
-                url: 'question-utils/question.php',
-                type: 'GET',
-                data: {
-                    id: questionId
-                },
-                success: function(response) {
-                    $('.question-container').html(response);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('Error loading question: ' + errorThrown);
-                }
-            });
-        }
-
-        function loadErrorQuestion(questionId) {
-            $.ajax({
-                url: 'question-utils/error-question.php',
-                type: 'GET',
-                data: {
-                    id: questionId
-                },
-                success: function(response) {
-                    $('.question-container').html(response);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('Error loading error-question: ' + errorThrown);
-                }
-            });
-        }
-
-        function getQuestions(c) {
-            $.ajax({
-                url: 'question-utils/totalQuestions.php',
-                method: 'POST',
-                data: {
-                    action: "getQuestions"
-                },
-                success: function(response) {
-                    totalQuestions = response;
-                },
-                error: function(xhr, status, error) {
-                    alert('Error: ' + error);
-                }
-            });
-        }
-
-        function retrieveAnswers() {
-            var allAnswers = [];
-            for (var i = 0; i < totalQuestions; i++) {
-                var answer = sessionStorage.getItem("answer_" + i);
-                allAnswers.push(answer);
+            function loadQuestion(questionId) {
+                $.ajax({
+                    url: 'question-utils/question.php',
+                    type: 'GET',
+                    data: {
+                        id: questionId
+                    },
+                    success: function(response) {
+                        $('.question-container').html(response);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log('Error loading question: ' + errorThrown);
+                    }
+                });
             }
-            console.log(allAnswers); // display all answers in console
-        }
 
-        $('#nextQuestion').click(function() {
+            function loadErrorQuestion(questionId) {
+                $.ajax({
+                    url: 'question-utils/error-question.php',
+                    type: 'GET',
+                    data: {
+                        id: questionId
+                    },
+                    success: function(response) {
+                        $('.question-container').html(response);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log('Error loading error-question: ' + errorThrown);
+                    }
+                });
+            }
+
+            function getQuestions(c) {
+                $.ajax({
+                    url: 'question-utils/totalQuestions.php',
+                    method: 'POST',
+                    data: {
+                        action: "getQuestions"
+                    },
+                    success: function(response) {
+                        totalQuestions = response;
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error: ' + error);
+                    }
+                });
+            }
+
+            function retrieveAnswers() {
+                var allAnswers = [];
+                for (var i = 0; i < totalQuestions; i++) {
+                    var answer = sessionStorage.getItem("answer_" + i);
+                    allAnswers.push(answer);
+                }
+                console.log(allAnswers); // display all answers in console
+            }
+
+            $('#nextQuestion').click(function() {
 
 
-            if( $('.govgr-radios__input').is(':checked') ){
-                
-                var answer = $('input[name="question-option"]:checked').val();
-                userAnswers[currentQuestion] = answer;
-                sessionStorage.setItem("answer_" + currentQuestion, answer); // save answer to session storage
-
-                if (currentQuestion + 1 == totalQuestions) {
-                    //click submit button
-                    alert('submit');
-                    // retrieve all answers when user submits
-                    retrieveAnswers(); 
-                } else {
-                    currentQuestion++;
-                    loadQuestion(currentQuestion);
+                if( $('.govgr-radios__input').is(':checked') ){
+                    
+                    var answer = $('input[name="question-option"]:checked').val();
+                    userAnswers[currentQuestion] = answer;
+                    sessionStorage.setItem("answer_" + currentQuestion, answer); // save answer to session storage
 
                     if (currentQuestion + 1 == totalQuestions) {
-                        $(this).text('Υποβολή');
-                    }
-                }
-            } else {
-                loadErrorQuestion(currentQuestion);
-            }
-        });
+                        //click submit button
+                        alert('submit');
+                        // retrieve all answers when user submits
+                        retrieveAnswers(); 
+                    } else {
+                        currentQuestion++;
+                        loadQuestion(currentQuestion);
 
-        // Load the first question on page load
-        loadQuestion(currentQuestion);
-        // Get the number of questions
-        getQuestions();
-    });
+                        if (currentQuestion + 1 == totalQuestions) {
+                            $(this).text('Υποβολή');
+                        }
+                    }
+                } else {
+                    loadErrorQuestion(currentQuestion);
+                }
+            });
+
+            // Load the first question on page load
+            loadQuestion(currentQuestion);
+            // Get the number of questions
+            getQuestions();
+        });
     </script>
 </head>
 
@@ -125,16 +134,11 @@
     </header>
     <div class="mask" id="mask-up"></div>
     <div class="mask" id="mask-bottom"></div>
-    <nav id="accessibility-menu">
-        <ul>
-            <li><button id="font-size-button">Big Font Size</button></li>
-            <li><button id="contrast-button">Change Contrast</button></li>
-            <li><button id="reading-mask-button">Reading Mask</button></li>
-            <li><button id="cursor-button">Bigger Cursor</button></li>
-            <li><button id="read-aloud-button">Read Aloud</button>
-        </ul>
-    </nav>
 
+
+
+
+    <!--  MAIN CONTAINER -->
     <div class="govgr-width-container" id="content">
         <div class="govgr-main-wrapper">
             <div class="govgr-grid-column-two-thirds">
@@ -154,6 +158,43 @@
             </svg>
         </button>
     </div>
+
+    <!-- ACCESSIBILITY MENU -->
+    <div class="row ">
+        <div class="col">
+            <div class="collapse multi-collapse" id="CollapseExample" >
+                <div class="card card-body" >
+                    <nav id="accessibility-menu">
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault" >Big Font Size</label>
+                            <input id="font-size-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault" >Change Contrast</label>
+                            <input id="contrast-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault" >Reading Mask</label>
+                            <input id="reading-mask-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault" >Bigger Cursor</label>
+                            <input id="cursor-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault" >Read Aloud</label>
+                            <input id="read-aloud-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-right">
+        <a class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button" aria-expanded="false" aria-controls="CollapseExample"><img src="assets/universal-access-solid.svg" alt="accessibility button image" width="40" style="color: #003375;" /></a>
+    </p>
+    
+    <!-- FOOTER  -->
     <footer class="govgr-footer" role="contentinfo">
         <div class="govgr-width-container">
             <div class="govgr-footer__meta">
