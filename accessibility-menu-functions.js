@@ -1,6 +1,6 @@
 //Reading
-enabledReading = false;
-document.getElementById('read-aloud-button').addEventListener('click', () => {
+var enabledReading = false;
+document.getElementById('read-aloud-button').addEventListener('change', function() {
     if (enabledReading) {
         //disable reading
         window.speechSynthesis.cancel();
@@ -18,9 +18,9 @@ document.getElementById('read-aloud-button').addEventListener('click', () => {
 });
 
 //Fonts
-let isFontBig = false;
+var isFontBig = false;
 
-document.getElementById('font-size-button').addEventListener('click', () => {
+document.getElementById('font-size-button').addEventListener('change', function() {
     if (isFontBig) {
         //disable big fonts
         var style = document.createElement('style');
@@ -38,7 +38,7 @@ document.getElementById('font-size-button').addEventListener('click', () => {
 });
 
 // Change Contrast
-document.getElementById('contrast-button').addEventListener('click', function() {
+document.getElementById('contrast-button').addEventListener('change', function() {
     // Toggle the body's contrast class
     document.body.classList.toggle('high-contrast');
 });
@@ -47,8 +47,8 @@ document.getElementById('contrast-button').addEventListener('click', function() 
 const readingMask1 = document.getElementById('mask-up');
 const readingMask2 = document.getElementById('mask-bottom');
 
-enabledReadingMask = false;
-document.getElementById('reading-mask-button').addEventListener('click', () => {
+var enabledReadingMask = false;
+document.getElementById('reading-mask-button').addEventListener('change', function() {
     if (enabledReadingMask) {
         //disable reading mask
         readingMask1.style.opacity = 0;
@@ -64,17 +64,17 @@ document.getElementById('reading-mask-button').addEventListener('click', () => {
     enabledReadingMask = !enabledReadingMask;
 });
 
-document.addEventListener('mousemove', function(e) {
-    if (readingMask2.style.opacity == 0.5) {
-        readingMask1.style.top = (e.clientY + 75) + 'px';
-        readingMask2.style.height = (e.clientY - 75) + 'px';
-    }
-});
-
+if ( !enabledReadingMask ) { 
+    document.addEventListener('mousemove', function(e) {
+            readingMask1.style.top = (e.clientY + 75) + 'px';
+            readingMask2.style.height = (e.clientY - 75) + 'px';
+    });
+}
+    
 // Bigger Cursor
-let isCursorBig = false;
+var isCursorBig = false;
 
-document.getElementById('cursor-button').addEventListener('click', () => {
+document.getElementById('cursor-button').addEventListener('change', function() {
     if (isCursorBig) {
         //disable big cursor
         var style = document.createElement('style');

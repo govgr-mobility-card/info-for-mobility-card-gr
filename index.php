@@ -23,103 +23,103 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
-        $("document").ready(function() {
-            var currentQuestion = 0;
-            var totalQuestions = 0;
-            var userAnswers = {};
+    $("document").ready(function() {
+        var currentQuestion = 0;
+        var totalQuestions = 0;
+        var userAnswers = {};
 
-            function loadQuestion(questionId) {
-                $.ajax({
-                    url: 'question-utils/question.php',
-                    type: 'GET',
-                    data: {
-                        id: questionId
-                    },
-                    success: function(response) {
-                        $('.question-container').html(response);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.log('Error loading question: ' + errorThrown);
-                    }
-                });
-            }
-
-            function loadErrorQuestion(questionId) {
-                $.ajax({
-                    url: 'question-utils/error-question.php',
-                    type: 'GET',
-                    data: {
-                        id: questionId
-                    },
-                    success: function(response) {
-                        $('.question-container').html(response);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.log('Error loading error-question: ' + errorThrown);
-                    }
-                });
-            }
-
-            function getQuestions(c) {
-                $.ajax({
-                    url: 'question-utils/totalQuestions.php',
-                    method: 'POST',
-                    data: {
-                        action: "getQuestions"
-                    },
-                    success: function(response) {
-                        totalQuestions = response;
-                    },
-                    error: function(xhr, status, error) {
-                        alert('Error: ' + error);
-                    }
-                });
-            }
-
-            function retrieveAnswers() {
-                var allAnswers = [];
-                for (var i = 0; i < totalQuestions; i++) {
-                    var answer = sessionStorage.getItem("answer_" + i);
-                    allAnswers.push(answer);
-                }
-                console.log(allAnswers); // display all answers in console
-            }
-
-            $('#nextQuestion').click(function() {
-
-
-                if( $('.govgr-radios__input').is(':checked') ){
-                    
-                    var answer = $('input[name="question-option"]:checked').val();
-                    userAnswers[currentQuestion] = answer;
-                    sessionStorage.setItem("answer_" + currentQuestion, answer); // save answer to session storage
-
-                    if (currentQuestion + 1 == totalQuestions) {
-                        //click submit button
-                        alert('submit');
-                        // retrieve all answers when user submits
-                        retrieveAnswers(); 
-                    } else {
-                        currentQuestion++;
-                        loadQuestion(currentQuestion);
-
-                        if (currentQuestion + 1 == totalQuestions) {
-                            $(this).text('Υποβολή');
-                        }
-                    }
-                } else {
-                    loadErrorQuestion(currentQuestion);
+        function loadQuestion(questionId) {
+            $.ajax({
+                url: 'question-utils/question.php',
+                type: 'GET',
+                data: {
+                    id: questionId
+                },
+                success: function(response) {
+                    $('.question-container').html(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('Error loading question: ' + errorThrown);
                 }
             });
+        }
 
-            // Load the first question on page load
-            loadQuestion(currentQuestion);
-            // Get the number of questions
-            getQuestions();
+        function loadErrorQuestion(questionId) {
+            $.ajax({
+                url: 'question-utils/error-question.php',
+                type: 'GET',
+                data: {
+                    id: questionId
+                },
+                success: function(response) {
+                    $('.question-container').html(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('Error loading error-question: ' + errorThrown);
+                }
+            });
+        }
+
+        function getQuestions(c) {
+            $.ajax({
+                url: 'question-utils/totalQuestions.php',
+                method: 'POST',
+                data: {
+                    action: "getQuestions"
+                },
+                success: function(response) {
+                    totalQuestions = response;
+                },
+                error: function(xhr, status, error) {
+                    alert('Error: ' + error);
+                }
+            });
+        }
+
+        function retrieveAnswers() {
+            var allAnswers = [];
+            for (var i = 0; i < totalQuestions; i++) {
+                var answer = sessionStorage.getItem("answer_" + i);
+                allAnswers.push(answer);
+            }
+            console.log(allAnswers); // display all answers in console
+        }
+
+        $('#nextQuestion').click(function() {
+
+
+            if ($('.govgr-radios__input').is(':checked')) {
+
+                var answer = $('input[name="question-option"]:checked').val();
+                userAnswers[currentQuestion] = answer;
+                sessionStorage.setItem("answer_" + currentQuestion,
+                    answer); // save answer to session storage
+
+                if (currentQuestion + 1 == totalQuestions) {
+                    //click submit button
+                    alert('submit');
+                    // retrieve all answers when user submits
+                    retrieveAnswers();
+                } else {
+                    currentQuestion++;
+                    loadQuestion(currentQuestion);
+
+                    if (currentQuestion + 1 == totalQuestions) {
+                        $(this).text('Υποβολή');
+                    }
+                }
+            } else {
+                loadErrorQuestion(currentQuestion);
+            }
         });
+
+        // Load the first question on page load
+        loadQuestion(currentQuestion);
+        // Get the number of questions
+        getQuestions();
+    });
     </script>
 </head>
 
@@ -162,28 +162,28 @@
     <!-- ACCESSIBILITY MENU -->
     <div class="row ">
         <div class="col">
-            <div class="collapse multi-collapse" id="CollapseExample" >
-                <div class="card card-body" >
+            <div class="collapse multi-collapse" id="CollapseExample">
+                <div class="card card-body">
                     <nav id="accessibility-menu">
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="flexSwitchCheckDefault" >Big Font Size</label>
-                            <input id="font-size-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="cursor-button">Bigger Cursor</label>
+                            <input id="cursor-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="flexSwitchCheckDefault" >Change Contrast</label>
-                            <input id="contrast-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="font-size-button">Big Font Size</label>
+                            <input id="font-size-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="flexSwitchCheckDefault" >Reading Mask</label>
-                            <input id="reading-mask-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="read-aloud-button">Read Aloud</label>
+                            <input id="read-aloud-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="flexSwitchCheckDefault" >Bigger Cursor</label>
-                            <input id="cursor-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="contrast-button">Change Contrast</label>
+                            <input id="contrast-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="flexSwitchCheckDefault" >Read Aloud</label>
-                            <input id="read-aloud-button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="reading-mask-button">Reading Mask</label>
+                            <input id="reading-mask-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                     </nav>
                 </div>
@@ -191,9 +191,11 @@
         </div>
     </div>
     <p class="text-right">
-        <a class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button" aria-expanded="false" aria-controls="CollapseExample"><img src="assets/universal-access-solid.svg" alt="accessibility button image" width="40" style="color: #003375;" /></a>
+        <a class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button" aria-expanded="false"
+            aria-controls="CollapseExample"><img src="assets/universal-access-solid.svg"
+                alt="accessibility button image" width="40" style="color: #003375;" /></a>
     </p>
-    
+
     <!-- FOOTER  -->
     <footer class="govgr-footer" role="contentinfo">
         <div class="govgr-width-container">
@@ -202,11 +204,15 @@
                     <div class="govgr-footer__content">
                         <p class="govgr-footer__licence-description">
 
-                            Υλοποίηση από τις φοιτήτριες της Εφαρμοσμένης Πληροφορικής: <a href="https://github.com/ElisavetAmpatzidou" target="_blank" rel="noreferrer noopener" 
-                            class="govgr-link">Αμπατζίδου Ελισάβετ <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
-                            και <a href="https://github.com/evitadasy" target="_blank" rel="noreferrer noopener" 
-                            class="govgr-link">Δασύρα Ευμορφία Ελπίδα 
-                           <span class="govgr-visually-hidden">(ανοίγει σε καινούρια καρτέλα)</span></a>
+                            Υλοποίηση από τις φοιτήτριες της Εφαρμοσμένης Πληροφορικής: <a
+                                href="https://github.com/ElisavetAmpatzidou" target="_blank" rel="noreferrer noopener"
+                                class="govgr-link">Αμπατζίδου Ελισάβετ
+                                <span class="govgr-visually-hidden">(ανοίγει σε
+                                    καινούρια καρτέλα)</span></a>
+                            και <a href="https://github.com/evitadasy" target="_blank" rel="noreferrer noopener"
+                                class="govgr-link">Δασύρα Ευμορφία Ελπίδα
+                                <span class="govgr-visually-hidden">(ανοίγει σε καινούρια
+                                    καρτέλα)</span></a>
                             για την εκπόνηση πτυχιακής εργασίας.
                         </p>
                     </div>
