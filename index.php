@@ -39,6 +39,21 @@
                 },
                 success: function(response) {
                     $('.question-container').html(response);
+                    currentQuestion = questionId; // Update the currentQuestion variable
+                    $('#nextQuestion').text(currentQuestion + 1 == totalQuestions ? 'Υποβολή' : 'Επόμενη ερώτηση');
+                    
+                    // Retrieve the answer for the current question from userAnswers
+                    var answer = userAnswers[currentQuestion];
+                    if (answer) {
+                        $('input[name="question-option"][value="' + answer + '"]').prop('checked', true);
+                    }
+
+                    // Show/hide the backButton based on the current question
+                    if (currentQuestion === 0) {
+                        $('#backButton').hide();
+                    } else {
+                        $('#backButton').show();
+                    }                    
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Error loading question: ' + errorThrown);
@@ -84,7 +99,7 @@
                 var answer = sessionStorage.getItem("answer_" + i);
                 allAnswers.push(answer);
             }
-            console.log(allAnswers); // display all answers in console
+            alert(allAnswers); // display all answers in console
         }
 
         $('#nextQuestion').click(function() {
@@ -112,6 +127,21 @@
                 }
             } else {
                 loadErrorQuestion(currentQuestion);
+            }
+        });
+
+        $('#backButton').click(function() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+            
+                $('#nextQuestion').text('Επόμενη ερώτηση'); 
+
+                // Retrieve the answer for the previous question from userAnswers
+                var answer = userAnswers[currentQuestion];
+                if (answer) {
+                    $('input[name="question-option"][value="' + answer + '"]').prop('checked', true);
+                }
             }
         });
 
@@ -151,12 +181,17 @@
         <div class="question-container">
             <!-- here we load the question with JQuery, AJAX -->
         </div>
-        <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
-            Επόμενη ερώτηση
-            <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
-                <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
-            </svg>
-        </button>
+        <div class="inline-btns" >
+            <button class="govgr-btn govgr-btn-secondary" id="backButton">
+                Πίσω
+            </button>
+            <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
+                Επόμενη ερώτηση
+                <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
+                    <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
+                </svg>
+            </button>
+        </div>
     </div>
 
     <!-- ACCESSIBILITY MENU -->
