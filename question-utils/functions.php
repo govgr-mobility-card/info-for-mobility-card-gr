@@ -1,6 +1,6 @@
 <?php
-  $questionsFilePath = 'questions.json';
-  // Load the JSON data from the file
+  $questionsFilePath = 'all-questions.json';
+// Load the JSON data from the file
   $questionsJson = file_get_contents($questionsFilePath);
   $questions = json_decode($questionsJson, true);
   
