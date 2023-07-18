@@ -24,37 +24,35 @@ $("document").ready(function () {
                     });
     }
 
-    function loadQuestion(questionId) {
+    function loadQuestion(questionId, noError) {
         const question = all_questions[questionId];
         const questionElement = document.createElement('div');
-        questionElement.innerHTML = `
-            <div class='govgr-field' id='$id'>
-                <fieldset class='govgr-fieldset' aria-describedby='radio-country'>
-                    <legend role='heading' aria-level='1' class='govgr-fieldset__legend govgr-heading-l'>
-                        ${question.question}
-                    </legend>
-                    <div class='govgr-radios'>
-                        <ul>
-                            ${question.options.map((option, index) => `
-                                <div class='govgr-radios__item'>
-                                    <label class='govgr-label govgr-radios__label'>
-                                        ${option}
-                                        <input class='govgr-radios__input' type='radio' name='question-option' value='${option}' />
-                                    </label>
-                                </div>
-                            `).join('')}
-                        </ul>
-                    </div>
-                </fieldset>
-            </div>
-        `;
-        $('.question-container').html(questionElement);
-    }
-
-    function loadErrorQuestion(questionId) {
-        const question = all_questions[questionId];
-        const questionElement = document.createElement('div');
-        questionElement.innerHTML = `
+        
+        //If the user has checked a value no error occurs
+        if (noError){
+            questionElement.innerHTML = `
+                <div class='govgr-field' id='$id'>
+                    <fieldset class='govgr-fieldset' aria-describedby='radio-country'>
+                        <legend role='heading' aria-level='1' class='govgr-fieldset__legend govgr-heading-l'>
+                            ${question.question}
+                        </legend>
+                        <div class='govgr-radios'>
+                            <ul>
+                                ${question.options.map((option, index) => `
+                                    <div class='govgr-radios__item'>
+                                        <label class='govgr-label govgr-radios__label'>
+                                            ${option}
+                                            <input class='govgr-radios__input' type='radio' name='question-option' value='${option}' />
+                                        </label>
+                                    </div>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </fieldset>
+                </div>
+            `;
+        } else {
+            questionElement.innerHTML = `
             <div class='govgr-field govgr-field__error' id='$id-error'>
                 <fieldset class='govgr-fieldset' aria-describedby='radio-error'>
                     <legend  class='govgr-fieldset__legend govgr-heading-m'>
@@ -78,8 +76,46 @@ $("document").ready(function () {
                 </fieldset>
             </div>
         `;
+        }
         $('.question-container').html(questionElement);
     }
+
+    $('#nextQuestion').click(function () {
+        if ($('.govgr-radios__input').is(':checked')) {
+            var answer = $('input[name="question-option"]:checked').val();
+            if (currentQuestion === 0 && answer ===
+                "Το έχασα για 2η φορά και θέλω να το εκδώσω ξανά") {
+                skipToEnd();
+            } else if (currentQuestion === 1 && answer === "ΟΧΙ") {
+                skipToEnd();
+            } else if (currentQuestion === 3 && answer === "ΟΧΙ") {
+                skipToEnd();
+            } else {
+                userAnswers[currentQuestion] = answer;
+                sessionStorage.setItem("answer_" + currentQuestion,
+                    answer); // save answer to session storage
+
+                if (currentQuestion + 1 == totalQuestions) {
+                    //click submit button
+                    alert('submit');
+                    // retrieve all answers when user submits
+                    submitForm();
+
+                } else {
+                    currentQuestion++;
+                    loadQuestion(currentQuestion, true);
+
+                    if (currentQuestion + 1 == totalQuestions) {
+
+                        $(this).text('Υποβολή');
+
+                    }
+                }
+            }
+        } else {
+            loadQuestion(currentQuestion, false);
+        }
+    });
 
     function getEvidencesById(id) {
         fetch(jsondata)
@@ -180,43 +216,6 @@ $("document").ready(function () {
         console.log(result);
     }
 
-    $('#nextQuestion').click(function () {
-        if ($('.govgr-radios__input').is(':checked')) {
-            var answer = $('input[name="question-option"]:checked').val();
-            if (currentQuestion === 0 && answer ===
-                "Το έχασα για 2η φορά και θέλω να το εκδώσω ξανά") {
-                skipToEnd();
-            } else if (currentQuestion === 1 && answer === "ΟΧΙ") {
-                skipToEnd();
-            } else if (currentQuestion === 3 && answer === "ΟΧΙ") {
-                skipToEnd();
-            } else {
-                userAnswers[currentQuestion] = answer;
-                sessionStorage.setItem("answer_" + currentQuestion,
-                    answer); // save answer to session storage
-
-                if (currentQuestion + 1 == totalQuestions) {
-                    //click submit button
-                    alert('submit');
-                    // retrieve all answers when user submits
-                    submitForm();
-
-                } else {
-                    currentQuestion++;
-                    loadQuestion(currentQuestion);
-
-                    if (currentQuestion + 1 == totalQuestions) {
-
-                        $(this).text('Υποβολή');
-
-                    }
-                }
-            }
-        } else {
-            loadErrorQuestion(currentQuestion);
-        }
-    });
-
     function skipToEnd() {
         $('.question-container').html("Λυπούμαστε αλλά δεν το δικαιούστε!");
         $('#nextQuestion').hide();
@@ -226,7 +225,7 @@ $("document").ready(function () {
     // Get the number of questions and load the first question on page load
     getQuestions().then(() => {
         // Code inside this block executes only after the data is fetched
-        loadQuestion(currentQuestion);
+        loadQuestion(currentQuestion, true);
     });
 
 
