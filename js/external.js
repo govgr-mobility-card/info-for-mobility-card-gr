@@ -105,7 +105,7 @@ $("document").ready(function () {
   }
 
   function skipToEnd() {
-    $(".question-container").html("Λυπούμαστε αλλά δεν δικαιούστε να εκδώσετε εκ νέου το Δελτίο Μετακίνησης ΑμεΑ!");
+    $(".question-container").html("Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!");
     hideFormBtns();
   }
 
