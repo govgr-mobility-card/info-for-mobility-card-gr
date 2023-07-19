@@ -1,0 +1,64 @@
+[
+    {
+        "id": 0,
+        "question": "Have you issued a Mobility Card before?",
+        "options": ["First time issuing it", "I lost it and want to reissue it", "I lost it for the second time and want to reissue it"]
+    },
+    {
+        "id": 1,
+        "question": "Are you a permanent and legal resident of Greece?",
+        "options": ["YES", "NO"]
+    },
+    {
+        "id": 2,
+        "question": "Which of the following categories do you belong to?",
+        "options": ["Greek citizen", 
+                    "Citizen of EU Member States, and citizens of European Economic Area (EEA) Member States",
+                    "Citizen of countries included in the European Convention ratified by Law 4017/1959 (Government Gazette 246/1959, A')",
+                    "Third-country nationals unable to work due to a work accident on Greek territory, or family members of Greek citizens or EU citizens, as defined in Article 20(2) of Presidential Decree 106/2007 (Government Gazette 135 A'), Article 85(4) of Law 4251/2014 (Government Gazette 80 A'), and Article 31(1) of Law 4540/2018 (Government Gazette 91 A')",
+                    "Recognized refugees permanently residing in Greece, whose stay status in Greece is governed by the provisions of the 1951 Convention relating to the Status of Refugees [Presidential Decree 3989/1959 (Government Gazette 201 A')], as amended by the New York Protocol of 1967 on the Status of Refugees [Law 389/1968 (Government Gazette 125 A')]"
+        ]
+    },
+    {
+        "id": 3,
+        "question": "Do you have a disability rate of 67% and above?",
+        "options": ["YES", "NO"]
+    },
+    {
+        "id": 4,
+        "question": "Which of the following categories do you belong to?",
+        "options": ["I have a medical certificate",
+                   "I have a decision from EFKA (Social Insurance Institute)", 
+                   "Recipient of disability benefits for disabled people (AmEA) granted by OPEKA (Center for Social Welfare and Solidarity)"
+        ]
+    },
+    {
+        "id": 5,
+        "question": "Which of the following categories do you belong to?",
+        "options": ["Any disability of at least 67% and above or an intelligence quotient (IQ) below 34",
+                   "Blind or visually impaired with a disability rate of 80% and above"
+        ]
+    },
+    {
+        "id": 6,
+        "question": "Please declare your status below:",
+        "options": ["I am applying for the card myself",
+                   "I am an authorized person of the cardholder",
+                   "I am the guardian of the cardholder"
+        ]
+    },
+    {
+        "id": 7,
+        "question": "Choose the means of transportation for which you want the Disabled ID Card:",
+        "options": ["For long-distance transportation only",
+                   "For all entitlements"
+        ]
+    },
+    {
+        "id": 8,
+        "question": "Choose the category you belong to:",
+        "options": ["Individual income is <b>less than</b> 23,000 or family income is <b>less than</b> 29,000 (OPEKA income not included)",
+                   "Individual income is <b>greater than</b> 23,000 or family income is <b>greater than</b> 29,000 (OPEKA income not included)"
+        ]
+    }
+]
