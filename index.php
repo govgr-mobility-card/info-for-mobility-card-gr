@@ -52,12 +52,17 @@
         <div class="question-container">
             <!-- here we load the question with JQuery, AJAX -->
         </div>
-        <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
-            Επόμενη ερώτηση
-            <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
-                <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
-            </svg>
-        </button>
+        <div class="inline-btns">
+            <button class="govgr-btn govgr-btn-secondary" id="backButton">
+                Πίσω
+            </button>
+            <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
+                Επόμενη ερώτηση
+                <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
+                    <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
+                </svg>
+            </button>
+        </div>
     </div>
 
     <!-- ACCESSIBILITY MENU -->
@@ -129,7 +134,7 @@
         </div>
     </footer>
 </body>
-<script type="text/javascript" src="accessibility-menu-functions.js"></script>
+<script type="text/javascript" src="js/accessibility-menu-functions.js"></script>
 <script>
 // window.addEventListener('DOMContentLoaded', function(e) {
 //     let paramString = window.location.href.split('?')[1];

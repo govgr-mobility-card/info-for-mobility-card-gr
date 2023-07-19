@@ -1,54 +1,54 @@
-*{
-  --orange-light:#FFCB89;
-  --orange:#ff5110;
-  --contrast-bg:black;
-  --contrast-color:white;
+* {
+  --orange-light: #ffcb89;
+  --orange: #ff5110;
+  --contrast-bg: black;
+  --contrast-color: white;
 }
 
-  .card {
-    float: right;
-  }
+.card {
+  float: right;
+}
 
-  #accessibility-icon{
-    width: 40px;
-    fill: #003375;
-  }
+#accessibility-icon {
+  width: 40px;
+  fill: #003375;
+}
 
-  .inline-btns{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.inline-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  /* High Contrast */
+/* High Contrast */
 .high-contrast {
   background-color: var(--contrast-bg);
   color: var(--contrast-color);
 }
 
-.high-contrast #accessibility-icon{
-  fill: var(--orange) ;
+.high-contrast #accessibility-icon {
+  fill: var(--orange);
 }
 
 .high-contrast input[type="radio"] {
- color: var(--contrast-bg);
- background-color: var(--contrast-color);
+  color: var(--contrast-bg);
+  background-color: var(--contrast-color);
 }
 
 .high-contrast button {
-   background-color: var(--contrast-color); 
+  background-color: var(--contrast-color);
   color: var(--contrast-bg);
 }
-.high-contrast .card{
+.high-contrast .card {
   background-color: var(--contrast-bg);
   border: 1px solid gray;
 }
 
-.high-contrast .govgr-btn-cta{
+.high-contrast .govgr-btn-cta {
   background-color: var(--orange-light);
   color: var(--contrast-bg);
 }
-.high-contrast .govgr-btn-cta:hover{
+.high-contrast .govgr-btn-cta:hover {
   background-color: var(--orange);
   color: var(--contrast-bg);
 }
@@ -79,7 +79,7 @@
   border-color: var(--orange);
 }
 
-.high-contrast .govgr-body{
+.high-contrast .govgr-body {
   color: aliceblue;
 }
 
@@ -96,7 +96,7 @@ nav div {
   background-color: var(--contrast-bg);
   pointer-events: none;
   z-index: 9999;
-  opacity:0;
+  opacity: 0;
 }
 
 #mask-bottom {
@@ -104,11 +104,11 @@ nav div {
   top: 0;
   left: 0;
   width: 100%;
-  height:0;
+  height: 0;
   background-color: var(--contrast-bg);
   pointer-events: none;
   z-index: 9999;
-  opacity:0;
+  opacity: 0;
 }
 
 .high-contrast {
@@ -116,7 +116,8 @@ nav div {
   /* color: var(--contrast-color); */
 }
 
-.high-contrast #mask-bottom,.high-contrast #mask-up{
+.high-contrast #mask-bottom,
+.high-contrast #mask-up {
   background-color: var(--contrast-color);
 }
 
