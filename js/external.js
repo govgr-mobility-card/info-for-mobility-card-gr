@@ -3,10 +3,10 @@ $("document").ready(function () {
     var totalQuestions = 0;
     var userAnswers = {};
     var all_questions;
-    const jsondata = 'cpsv.json';
+    const jsondata = 'question-utils/cpsv.json';
 
     function getQuestions() {
-        return fetch('all-questions.json')
+        return fetch('question-utils/all-questions.json')
                     .then(response => response.json())
                     .then(data => {
                         all_questions = data;
@@ -28,7 +28,7 @@ $("document").ready(function () {
         const question = all_questions[questionId];
         const questionElement = document.createElement('div');
         
-        //If the user has checked a value no error occurs
+        //If the user has answered the question, no error occurs. Otherwise you get an error!
         if (noError){
             questionElement.innerHTML = `
                 <div class='govgr-field' id='$id'>
