@@ -1,24 +1,45 @@
 //Reading
 var enabledReading = false;
+var currentIndex = 0;
+var activeElement;
 document
   .getElementById("read-aloud-button")
   .addEventListener("change", function () {
+
     if (enabledReading) {
-      //disable reading
+      currentIndex = 0;
       window.speechSynthesis.cancel();
+
     } else {
-      //enable reading
-      var content = document.getElementById("content");
-      if (content) {
-        var msg = new SpeechSynthesisUtterance(content.textContent);
-        window.speechSynthesis.speak(msg);
-      } else {
-        console.log("Error: content element not found");
-      }
+    $("#nextQuestion").click(function () {
+      window.speechSynthesis.cancel();
+      var msg = new SpeechSynthesisUtterance(document.querySelector('[tabindex="5"]').textContent);
+      console.log(msg);
+      window.speechSynthesis.speak(msg);
+    });
     }
     enabledReading = !enabledReading;
   });
 
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Tab" && enabledReading) {
+      event.preventDefault();
+      if (currentIndex < 9) {
+        window.speechSynthesis.cancel();
+        currentIndex= currentIndex+1;
+        console.log(currentIndex);
+        activeElement = document.querySelector('[tabindex="' + currentIndex + '"]');
+        activeElement.focus();
+        console.log(activeElement.textContent);
+        var msg = new SpeechSynthesisUtterance(activeElement.textContent);
+        window.speechSynthesis.speak(msg);
+      }
+      } else {
+        console.log("No next element found");
+      }
+    });
+
+   
 //Fonts
 var isFontBig = false;
 
