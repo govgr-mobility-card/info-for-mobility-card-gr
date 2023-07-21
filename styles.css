@@ -125,3 +125,23 @@ nav div {
   background-color: var(--contrast-color);
   color: var(--contrast-bg);
 }
+
+header button div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 7px;
+  gap: 7px;
+  padding: 10px;
+  background-color: #00aeef!important;
+  border-radius: 4px;
+  color: black;
+  flex-wrap: wrap;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
