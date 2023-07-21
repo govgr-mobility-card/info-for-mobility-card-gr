@@ -40,7 +40,7 @@
     <div class="mask" id="mask-bottom"></div>
     
     <!-- Language switch button -->
-    <button class="govgr-btn govgr-btn-secondary language-component" data-component="languageBtn" onclick="toggleLanguage()">
+    <button class="govgr-btn govgr-btn-secondary language-component" id="languageBtn" data-component="languageBtn">
         EL
     </button>
 
@@ -48,7 +48,7 @@
     <div class="govgr-width-container" id="content">
         <div class="govgr-main-wrapper">
             <div class="govgr-grid-column-two-thirds">
-                <h1 class="govgr-heading-xl language-component" data-component="pageTitle">Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023</h1>
+                <h1 class="govgr-heading-xl language-component" data-component="infoTitle">Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023</h1>
                 <p class="govgr-body language-component" data-component="subTitle">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε
                     πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
                 </p>
@@ -61,8 +61,8 @@
             <button class="govgr-btn govgr-btn-secondary language-component" data-component="backButton" id="backButton">
                 Πίσω
             </button>
-            <button class="govgr-btn govgr-btn-primary govgr-btn-cta language-component" data-component="nextQuestion" id="nextQuestion">
-                Επόμενη ερώτηση
+            <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
+                <span class="language-component" data-component="nextQuestion">Επόμενη ερώτηση</span>
                 <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
                     <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
                 </svg>
@@ -77,23 +77,23 @@
                 <div class="card card-body">
                     <nav id="accessibility-menu">
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="cursor-button">Bigger Cursor</label>
+                            <label class="form-check-label language-component" for="cursor-button" data-component="biggerCursor">Μεγαλύτερος Δρομέας</label>
                             <input id="cursor-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="font-size-button">Big Font Size</label>
+                            <label class="form-check-label language-component" for="font-size-button" data-component="bigFontSize">Μεγάλο Κείμενο</label>
                             <input id="font-size-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="read-aloud-button">Read Aloud</label>
+                            <label class="form-check-label language-component" for="read-aloud-button" data-component="readAloud">Ανάγνωση</label>
                             <input id="read-aloud-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="contrast-button">Change Contrast</label>
+                            <label class="form-check-label language-component" for="contrast-button" data-component="changeContrast">Αντίθεση</label>
                             <input id="contrast-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                         <div class="form-check form-switch">
-                            <label class="form-check-label" for="reading-mask-button">Reading Mask</label>
+                            <label class="form-check-label language-component" for="reading-mask-button" data-component="readingMask">Μάσκα Ανάγνωσης</label>
                             <input id="reading-mask-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
                     </nav>
@@ -118,7 +118,6 @@
                 <div class="govgr-footer__meta-item govgr-footer__meta-item--grow">
                     <div class="govgr-footer__content">
                         <p class="govgr-footer__licence-description" id="footerData">
-
                             Υλοποίηση από τις φοιτήτριες της Εφαρμοσμένης Πληροφορικής: <a
                                 href="https://github.com/ElisavetAmpatzidou" target="_blank" rel="noreferrer noopener"
                                 class="govgr-link">Αμπατζίδου Ελισάβετ

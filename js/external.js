@@ -3,6 +3,7 @@ $("document").ready(function () {
   var totalQuestions = 0;
   var userAnswers = {};
   var all_questions;
+  var all_questions_en;
   const jsondata = "question-utils/cpsv.json";
 
   //hide the form buttons when its necessary
@@ -18,13 +19,31 @@ $("document").ready(function () {
       .then((data) => {
         all_questions = data;
         totalQuestions = data.length;
+
+        // Fetch the second JSON file
+        return fetch("question-utils/all-questions-en.json")
+          .then((response) => response.json())
+          .then((dataEn) => {
+            all_questions_en = dataEn;
+          })
+          .catch((error) => {
+            console.error("ΔΕΝ ΒΡΕΘΗΚΑΝ ΕΡΩΤΗΣΕΙΣ (EN):", error);
+
+            // Show error message to the user
+            const errorMessage = document.createElement("div");
+            errorMessage.textContent =
+              "Error: Failed to fetch all-questions-en.json.";
+            $(".question-container").html(errorMessage);
+
+            hideFormBtns();
+          });
       })
       .catch((error) => {
         console.error("ΔΕΝ ΒΡΕΘΗΚΑΝ ΕΡΩΤΗΣΕΙΣ:", error);
 
         // Show error message to the user
         const errorMessage = document.createElement("div");
-        errorMessage.textContent = "Error: Failed to fetch all_questions.";
+        errorMessage.textContent = "Error: Failed to fetch all-questions.json.";
         $(".question-container").html(errorMessage);
 
         hideFormBtns();
@@ -33,15 +52,19 @@ $("document").ready(function () {
 
   //Εachtime back/next buttons are pressed the form loads a question
   function loadQuestion(questionId, noError) {
-
     //If it is the first question, the back button is hidden
     if (currentQuestion === 0) {
-        $('#backButton').hide();
+      $("#backButton").hide();
     } else {
-        $('#backButton').show();
-    }  
+      $("#backButton").show();
+    }
 
-    var question = all_questions[questionId];
+    //based on change-language.js
+    if (currentLanguage === "english") {
+      question = all_questions_en[questionId];
+    } else {
+      question = all_questions[questionId];
+    }
     var questionElement = document.createElement("div");
 
     //If the user has answered (checked a value) the question, no error occurs. Otherwise you get an error (meaning that user needs to answer before he continues to the next question)!
@@ -75,14 +98,14 @@ $("document").ready(function () {
       questionElement.innerHTML = `
             <div class='govgr-field govgr-field__error' id='$id-error'>
                 <fieldset class='govgr-fieldset' aria-describedby='radio-error'>
-                    <legend  class='govgr-fieldset__legend govgr-heading-m'>
+                    <legend  class='govgr-fieldset__legend govgr-heading-m language-component' data-component='chooseAnswer'>
                         Επιλέξτε την απάντησή σας
                     </legend>
-                    <p class='govgr-hint'>Μπορείτε να επιλέξετε μόνο μία επιλογή.</p>
+                    <p class='govgr-hint language-component' data-component='oneAnswer'>Μπορείτε να επιλέξετε μόνο μία επιλογή.</p>
                     <div class='govgr-radios'>
                         <p class='govgr-error-message'>
-                            <span class='govgr-visually-hidden'>Λάθος:</span>
-                            Πρέπει να επιλέξετε μια απάντηση
+                            <span class='govgr-visually-hidden language-component' data-component='errorAn'>Λάθος:</span>
+                            <span class='language-component' data-component='choose'>Πρέπει να επιλέξετε μια απάντηση</span>
                         </p>
                             ${question.options
                               .map(
@@ -105,7 +128,9 @@ $("document").ready(function () {
   }
 
   function skipToEnd() {
-    $(".question-container").html("Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!");
+    $(".question-container").html(
+      "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!"
+    );
     hideFormBtns();
   }
 
@@ -174,7 +199,6 @@ $("document").ready(function () {
     console.log(result);
   }
 
-  
   function submitForm() {
     $(".question-container").html("Είστε δικαιούχος!");
     const evidenceListElement = document.createElement("ul");
@@ -189,12 +213,11 @@ $("document").ready(function () {
       var answer = $('input[name="question-option"]:checked').val();
       if (
         currentQuestion === 0 &&
-        answer === "Το έχασα για 2η φορά και θέλω να το εκδώσω ξανά"
-      ) {
+        (answer === "Το έχασα για 2η φορά και θέλω να το εκδώσω ξανά" || answer === "I lost it for the second time and want to reissue it" )) {
         skipToEnd();
-      } else if (currentQuestion === 1 && answer === "ΟΧΙ") {
+      } else if (currentQuestion === 1 && (answer === "ΟΧΙ" || answer === "NO" )) {
         skipToEnd();
-      } else if (currentQuestion === 3 && answer === "ΟΧΙ") {
+      } else if (currentQuestion === 3 && (answer === "ΟΧΙ" || answer === "NO" )) {
         skipToEnd();
       } else {
         userAnswers[currentQuestion] = answer;
@@ -202,19 +225,21 @@ $("document").ready(function () {
 
         //if the questions are finished then...
         if (currentQuestion + 1 == totalQuestions) {
-
           alert("submit");
 
           // retrieve all answers
           submitForm();
-        } 
+        }
         // otherwise...
         else {
           currentQuestion++;
           loadQuestion(currentQuestion, true);
 
-          if (currentQuestion + 1 == totalQuestions) {
+          if (currentQuestion + 1 == totalQuestions && currentLanguage=="greek") {
             $(this).text("Υποβολή");
+          }
+          else if (currentQuestion + 1 == totalQuestions && currentLanguage=="english"){
+            $(this).text("Submit");
           }
         }
       }
@@ -223,13 +248,10 @@ $("document").ready(function () {
     }
   });
 
-  
   $("#backButton").click(function () {
     if (currentQuestion > 0) {
       currentQuestion--;
       loadQuestion(currentQuestion, true);
-
-      $("#nextQuestion").text("Επόμενη ερώτηση");
 
       // Retrieve the answer for the previous question from userAnswers
       var answer = userAnswers[currentQuestion];
@@ -240,6 +262,12 @@ $("document").ready(function () {
         );
       }
     }
+  });
+
+  $("#languageBtn").click(function () {
+    toggleLanguage();
+
+    loadQuestion(currentQuestion, true);
   });
 
   function getEvidencesById(id) {
