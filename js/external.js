@@ -67,8 +67,10 @@ $("document").ready(function () {
     }
     var questionElement = document.createElement("div");
 
+
     //If the user has answered (checked a value) the question, no error occurs. Otherwise you get an error (meaning that user needs to answer before he continues to the next question)!
     if (noError) {
+
       questionElement.innerHTML = `
                 <div class='govgr-field' id='$id'>
                     <fieldset class='govgr-fieldset' aria-describedby='radio-country'>
@@ -123,7 +125,24 @@ $("document").ready(function () {
                 </fieldset>
             </div>
         `;
+      
+      //The reason for manually updating the components of the <<error>> questionElement is because the 
+      //querySelectorAll method works on elements that are already in the DOM (Document Object Model) 
+      if (currentLanguage === "english"){
+        // Manually update the english format of the last 4 text elements in change-language.js
+          //chooseAnswer: "Choose your answer",
+          //oneAnswer: "You can choose only one option.",
+          //errorAn: "Error:",
+          //choose: "You must choose one option"
+        var components = Array.from(questionElement.querySelectorAll(".language-component"));
+        components.slice(-4).forEach(function (component) {
+          var componentName = component.dataset.component;
+          component.textContent = languageContent[currentLanguage][componentName];
+        });
+
+      }
     }
+
     $(".question-container").html(questionElement);
   }
 
@@ -214,10 +233,13 @@ $("document").ready(function () {
       if (
         currentQuestion === 0 &&
         (answer === "Το έχασα για 2η φορά και θέλω να το εκδώσω ξανά" || answer === "I lost it for the second time and want to reissue it" )) {
+        currentQuestion=-1;
         skipToEnd();
       } else if (currentQuestion === 1 && (answer === "ΟΧΙ" || answer === "NO" )) {
+        currentQuestion=-1;
         skipToEnd();
       } else if (currentQuestion === 3 && (answer === "ΟΧΙ" || answer === "NO" )) {
+        currentQuestion=-1;
         skipToEnd();
       } else {
         userAnswers[currentQuestion] = answer;
@@ -266,8 +288,8 @@ $("document").ready(function () {
 
   $("#languageBtn").click(function () {
     toggleLanguage();
-
-    loadQuestion(currentQuestion, true);
+    // if is false only when the user is skipedToEnd and trying change the language
+    if (currentQuestion>=0 && currentQuestion<totalQuestions-1) loadQuestion(currentQuestion, true);
   });
 
   function getEvidencesById(id) {

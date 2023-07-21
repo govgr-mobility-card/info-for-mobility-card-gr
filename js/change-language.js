@@ -1,7 +1,6 @@
 var languageContent = {
     greek: {
       languageBtn: "EL",
-      headerTitle: "ΔΕΛΤΙΟ ΜΕΤΑΚΙΝΗΣΗΣ ΑΜΕΑ",
       pageTitle: "Δελτίο Μετακίνησης ΑΜΕΑ",
       infoTitle: "Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023",
       subTitle: "Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.",
@@ -19,7 +18,6 @@ var languageContent = {
     },
     english: {
       languageBtn: "EN",
-      headerTitle: "MOBILITY CARD",
       pageTitle: "Mobility Card for People with Disabilities",
       infoTitle: "Information on the issue of Mobility Cards for people with disabilities for 2023",
       subTitle: "This guide has been created to help users with any information about the mobility card for disabled people.",
