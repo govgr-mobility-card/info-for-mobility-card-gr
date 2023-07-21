@@ -12,10 +12,24 @@ document
 
     } else {
     $("#nextQuestion").click(function () {
-      window.speechSynthesis.cancel();
-      var msg = new SpeechSynthesisUtterance(document.querySelector('[tabindex="5"]').textContent);
-      console.log(msg);
-      window.speechSynthesis.speak(msg);
+      if(!enabledReading){
+        window.speechSynthesis.cancel();
+      }else{
+        window.speechSynthesis.cancel();
+        var msg = new SpeechSynthesisUtterance(document.querySelector('[tabindex="5"]').textContent);
+        console.log(msg);
+        window.speechSynthesis.speak(msg);
+      }
+    });
+    $("#backButton").click(function () {
+      if(!enabledReading){
+        window.speechSynthesis.cancel();
+      }else{
+        window.speechSynthesis.cancel();
+        var msg = new SpeechSynthesisUtterance(document.querySelector('[tabindex="5"]').textContent);
+        console.log(msg);
+        window.speechSynthesis.speak(msg);
+      }
     });
     }
     enabledReading = !enabledReading;
@@ -24,7 +38,7 @@ document
   document.addEventListener("keydown", function (event) {
     if (event.key === "Tab" && enabledReading) {
       event.preventDefault();
-      if (currentIndex < 9) {
+      if (currentIndex < 14) {
         window.speechSynthesis.cancel();
         currentIndex= currentIndex+1;
         console.log(currentIndex);
