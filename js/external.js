@@ -39,7 +39,7 @@ $("document").ready(function () {
           });
       })
       .catch((error) => {
-        console.error("ΔΕΝ ΒΡΕΘΗΚΑΝ ΕΡΩΤΗΣΕΙΣ:", error);
+        console.error("Failed to fetch all-questions:", error);
 
         // Show error message to the user
         const errorMessage = document.createElement("div");
@@ -147,11 +147,23 @@ $("document").ready(function () {
   }
 
   function skipToEnd() {
-    $(".question-container").html(
-      "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!"
-    );
+    if (currentLanguage === "english") {
+      $(".question-container").html(
+        "Sorry you are not eligible!"
+      );
+    } else {
+      $(".question-container").html(
+        "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!"
+      );
+    }
     hideFormBtns();
   }
+
+  $("#startBtn").click(function () {    
+    //this will redirect us in same window
+    document.location.href = "form.html";
+
+  });
 
   function retrieveAnswers() {
     var allAnswers = [];
