@@ -149,6 +149,9 @@ $("document").ready(function () {
     } else {
       questionElement.innerHTML = `
             <div class='govgr-field govgr-field__error' id='$id-error'>
+            <legend role='heading' aria-level='1' class='govgr-fieldset__legend govgr-heading-l'>
+                        ${question.question}
+                    </legend>
                 <fieldset class='govgr-fieldset' aria-describedby='radio-error'>
                     <legend  class='govgr-fieldset__legend govgr-heading-m language-component' data-component='chooseAnswer'>
                         Επιλέξτε την απάντησή σας
@@ -159,6 +162,7 @@ $("document").ready(function () {
                             <span class='govgr-visually-hidden language-component' data-component='errorAn'>Λάθος:</span>
                             <span class='language-component' data-component='choose'>Πρέπει να επιλέξετε μια απάντηση</span>
                         </p>
+                        
                             ${question.options
                               .map(
                                 (option, index) => `
@@ -289,6 +293,7 @@ $("document").ready(function () {
   }
 
   $("#nextQuestion").click(function () {
+    
     if ($(".govgr-radios__input").is(":checked")) {
       var answer = $('input[name="question-option"]:checked').val();
       if (
