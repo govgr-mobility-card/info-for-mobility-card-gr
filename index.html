@@ -33,9 +33,7 @@
         <div class="govgr-header__container">
             <div class="govgr-header__content">
                 <img class="govgr-header-logo" src="https://www.gov.gr/gov_gr_logo.svg" alt="gov.gr logo" />
-                <div class="govgr-header-title language-component" data-component="pageTitle">
-                    Δελτίο μετακίνησης ΑΜΕΑ
-                </div>
+                <div class="govgr-header-title language-component" data-component="pageTitle" tabindex="1">Δελτίο μετακίνησης ΑΜΕΑ</div>
             </div>
         </div>
         <div>
@@ -54,40 +52,41 @@
     <div class="mask" id="mask-bottom"></div>
 
     <!--  MAIN CONTAINER -->
-    <div class="govgr-width-container" id="content">
+    <div class="govgr-width-container" id="content">            
         <div class="govgr-main-wrapper">
             <div class="govgr-grid-column-two-thirds">
-                <h1 class="govgr-heading-xl language-component" data-component="infoTitle">
+                <h1 class="govgr-heading-xl language-component" data-component="infoTitle" tabindex="3">
                     Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023
                 </h1>
             </div>
         </div>
 
         <div id="intro">
-            <p class="govgr-body language-component" data-component="subTitle">
+            <p class="govgr-body language-component" data-component="subTitle" tabindex="4">
                 Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για
                 οποιαδήποτε πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
             </p>
             <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="startBtn">
                 <span class="language-component" data-component="startBtn">Ας ξεκινήσουμε</span>
                 <svg viewBox="0 0 24 24" class="govgr-arrow--right govgr-svg-icon" focusable="false" aria-hidden="true">
+
                     <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
                 </svg>
             </button>
         </div>
 
         <div id="questions-btns">
-            <div class="question-container">
+            <div class="question-container" tabindex="5">
                 <!-- here we load the question with JQuery, AJAX -->
             </div>
 
             <div class="inline-btns">
                 <button class="govgr-btn govgr-btn-secondary language-component" data-component="backButton"
-                    id="backButton">
+                    id="backButton" tabindex="6">
                     Πίσω
                 </button>
                 <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
-                    <span class="language-component" data-component="nextQuestion">Επόμενη ερώτηση</span>
+                    <span class="language-component" data-component="nextQuestion" tabindex="7">Επόμενη ερώτηση</span>
                     <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
                         <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
                     </svg>
@@ -97,6 +96,7 @@
     </div>
 
     <!-- ACCESSIBILITY MENU -->
+
     <div id="access-menu">
         <div class="row">
             <div class="col">
@@ -108,22 +108,22 @@
                                     data-component="biggerCursor">Μεγαλύτερος Δρομέας</label>
                                 <input id="cursor-button" class="form-check-input" type="checkbox" role="switch" />
                             </div>
-                            <div class="form-check form-switch">
+                            <div class="form-check form-switch" tabindex="9">
                                 <label class="form-check-label language-component" for="font-size-button"
                                     data-component="bigFontSize">Μεγάλο Κείμενο</label>
                                 <input id="font-size-button" class="form-check-input" type="checkbox" role="switch" />
                             </div>
-                            <div class="form-check form-switch">
+                            <div class="form-check form-switch" tabindex="10">
                                 <label class="form-check-label language-component" for="read-aloud-button"
                                     data-component="readAloud">Ανάγνωση</label>
                                 <input id="read-aloud-button" class="form-check-input" type="checkbox" role="switch" />
                             </div>
-                            <div class="form-check form-switch">
+                            <div class="form-check form-switch" tabindex="11">
                                 <label class="form-check-label language-component" for="contrast-button"
                                     data-component="changeContrast">Αντίθεση</label>
                                 <input id="contrast-button" class="form-check-input" type="checkbox" role="switch" />
                             </div>
-                            <div class="form-check form-switch">
+                            <div class="form-check form-switch" tabindex="12">
                                 <label class="form-check-label language-component" for="reading-mask-button"
                                     data-component="readingMask">Μάσκα Ανάγνωσης</label>
                                 <input id="reading-mask-button" class="form-check-input" type="checkbox"
@@ -135,7 +135,7 @@
             </div>
         </div>
         <p class="text-right">
-            <a class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button"
+            <a tabindex="8" class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button"
                 aria-expanded="false" aria-controls="CollapseExample">
                 <svg id="accessibility-icon" xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path
