@@ -38,7 +38,7 @@ document
   document.addEventListener("keydown", function (event) {
     if (event.key === "Tab" && enabledReading) {
       event.preventDefault();
-      if (currentIndex < 14) {
+      if (currentIndex < 20) {
         window.speechSynthesis.cancel();
         currentIndex= currentIndex+1;
         console.log(currentIndex);

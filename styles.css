@@ -14,8 +14,10 @@
   fill: #003375;
 }
 
-#faqContainer {
-  margin: 0 15px;
+#access-menu{
+  position: absolute;
+  top: 15%;
+  right: 10px;
 }
 
 .inline-btns {
