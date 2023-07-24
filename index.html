@@ -54,12 +54,14 @@
         <div class="govgr-main-wrapper">
             <div class="govgr-grid-column-two-thirds">
                 <h1 class="govgr-heading-xl language-component" data-component="infoTitle">Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023</h1>
-                <p class="govgr-body language-component" data-component="subTitle">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε
-                    πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
-                </p>
             </div>
         </div>
-
+    </div>
+    
+    <div id="intro">
+        <p class="govgr-body language-component" data-component="subTitle">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε
+            πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
+        </p>
         <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="startBtn">
             <span class="language-component" data-component="startBtn">Ας ξεκινήσουμε</span>
             <svg viewBox="0 0 24 24" 
@@ -68,8 +70,27 @@
               aria-hidden="true"> <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z"/> 
             </svg>
         </button>
-          
     </div>
+
+    <div id="questions-btns">
+        <div class="question-container">
+            <!-- here we load the question with JQuery, AJAX -->
+        </div>
+
+        <div class="inline-btns">
+            <button class="govgr-btn govgr-btn-secondary language-component" data-component="backButton" id="backButton">
+                Πίσω
+            </button>
+            <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
+                <span class="language-component" data-component="nextQuestion">Επόμενη ερώτηση</span>
+                <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
+                    <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
 
     <!-- ACCESSIBILITY MENU -->
     <div class="row ">
@@ -111,6 +132,69 @@
             </svg>
         </a>
     </p>
+
+        <!-- FAQ -->
+        <div id="faqContainer" class="govgr-accordion" >
+            <div>FAQ</div>
+            <details class="govgr-accordion__section" >
+              <summary class="govgr-accordion__section-summary">
+                <h2 class="govgr-accordion__section-heading"><span class="govgr-accordion__section-button">Ποια είναι η ημερομηνία ανανέωσης και έκδοσης;
+                </span></h2>
+              </summary>
+              <div class="govgr-accordion__section-content">
+                <p class="govgr-body"> 
+                    Για την ανανέωση και την έκδοση νέων Δελτίων Μετακίνησης AMEA ορίζεται ως ημερομηνία έναρξης η 23η -1- 2023 και λήξης η 31η -10-2023.
+                </p>
+                <!-- <ul class="govgr-list">
+                  <li><a class="govgr-link" > Αίτηση εξώδικης αναγνώρισης απαιτήσεων / συμβιβαστικής επίλυσης διαφορών με το Δημόσιο </a></li>
+                </ul> -->
+              </div>
+            </details>
+            <details class="govgr-accordion__section" selected>
+              <summary class="govgr-accordion__section-summary">
+                <h2 class="govgr-accordion__section-heading"><span class="govgr-accordion__section-button">Δικαστήρια</span></h2>
+              </summary>
+              <div class="govgr-accordion__section-content">
+                <p class="govgr-body"> 
+                  Στη λίστα παρακάτω μπορείτε να δείτε τις υπηρεσίες που αφορούν το επιλεγμένο γεγονός ζωής, κατηγοριοποιημένες σε ομάδες υπηρεσιών.
+                </p>
+                <ul class="govgr-list">
+                  <li><a class="govgr-link" > Ενιαίο πιστοποιητικό δικαστικής φερεγγυότητας </a></li>
+                  <li><a class="govgr-link" > Ηλεκτρονικές δικαστικές αποφάσεις </a></li>
+                  <li><a class="govgr-link" > Πιστοποιητικά δικαστηρίων </a></li>
+                </ul>
+              </div>
+            </details>
+            <details class="govgr-accordion__section">
+              <summary class="govgr-accordion__section-summary">
+                <h2 class="govgr-accordion__section-heading"><span class="govgr-accordion__section-button">Δικόγραφα</span></h2>
+              </summary>
+              <div class="govgr-accordion__section-content">
+                <p class="govgr-body"> 
+                  Στη λίστα παρακάτω μπορείτε να δείτε τις υπηρεσίες που αφορούν το επιλεγμένο γεγονός ζωής.
+                </p>
+                <ul class="govgr-list">
+                  <li><a class="govgr-link" > Αντίγραφο πρακτικών υπόθεσης </a></li>
+                  <li><a class="govgr-link" > Ηλεκτρονική κατάθεση δικογράφων (Πολιτικά / Ποινικά Δικαστήρια) </a></li>
+                </ul>
+              </div>
+            </details>
+            <details class="govgr-accordion__section">
+              <summary class="govgr-accordion__section-summary">
+                <h2 class="govgr-accordion__section-heading"><span class="govgr-accordion__section-button">Καταστήματα κράτησης</span></h2>
+              </summary>
+              <div class="govgr-accordion__section-content">
+                <p class="govgr-body"> 
+                  Στη λίστα παρακάτω μπορείτε να δείτε τις υπηρεσίες που αφορούν το επιλεγμένο γεγονός ζωής.
+                </p>
+                <ul class="govgr-list">
+                  <li><a class="govgr-link" > Βεβαίωση ηθικού / πειθαρχικού ελέγχου αποφυλακισμένων </a></li>
+                  <li><a class="govgr-link" > Εκπαίδευση αποφυλακισμένων </a></li>
+                </ul>
+              </div>
+            </details>
+          </div>
+    
 
     <!-- FOOTER  -->
     <footer class="govgr-footer" role="contentinfo">

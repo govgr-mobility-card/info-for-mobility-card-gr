@@ -27,7 +27,7 @@ $("document").ready(function () {
             all_questions_en = dataEn;
           })
           .catch((error) => {
-            console.error("ΔΕΝ ΒΡΕΘΗΚΑΝ ΕΡΩΤΗΣΕΙΣ (EN):", error);
+            console.error("Failed to fetch all-questions-en.json:", error);
 
             // Show error message to the user
             const errorMessage = document.createElement("div");
@@ -50,6 +50,61 @@ $("document").ready(function () {
       });
   }
 
+  function getEvidences(){
+    return fetch("question-utils/cpsv.json")
+    .then((response) => response.json())
+    .then((data) => {
+      all_evidences = data;
+      totalEvidences = data.length;
+
+      // Fetch the second JSON file
+      return fetch("question-utils/cpsv-en.json")
+        .then((response) => response.json())
+        .then((dataEn) => {
+          all_evidences_en = dataEn;
+        })
+        .catch((error) => {
+          console.error("Failed to fetch cpsv-en:", error);
+
+          // Show error message to the user
+          const errorMessage = document.createElement("div");
+          errorMessage.textContent =
+            "Error: Failed to fetch cpsv-en.json.";
+          $(".question-container").html(errorMessage);
+
+          hideFormBtns();
+        });
+    })
+    .catch((error) => {
+      console.error("Failed to fetch cpsv:", error);
+
+      // Show error message to the user
+      const errorMessage = document.createElement("div");
+      errorMessage.textContent = "Error: Failed to fetch cpsv.json.";
+      $(".question-container").html(errorMessage);
+
+      hideFormBtns();
+    });
+
+  }
+
+  function getEvidencesById(id) {
+    var selectedEvidence;
+    currentLanguage === "greek" ? selectedEvidence = all_evidences : selectedEvidence = all_evidences_en;
+    selectedEvidence = selectedEvidence.PublicService.evidence.find((evidence) => evidence.id === id) 
+
+    if (selectedEvidence) {
+      const evidenceListElement = document.getElementById("evidences");
+      selectedEvidence.evs.forEach((evsItem) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = evsItem.name;
+        evidenceListElement.appendChild(listItem);
+      });
+    } else {
+      console.log(`Evidence with ID '${givenEvidenceID}' not found.`);
+    }
+  }
+
   //Εachtime back/next buttons are pressed the form loads a question
   function loadQuestion(questionId, noError) {
     //If it is the first question, the back button is hidden
@@ -59,16 +114,11 @@ $("document").ready(function () {
       $("#backButton").show();
     }
 
-    //based on change-language.js
-    if (currentLanguage === "english") {
-      question = all_questions_en[questionId];
-    } else {
-      question = all_questions[questionId];
-    }
+    currentLanguage === "greek" ? question = all_questions[questionId] : question = all_questions_en[questionId];
     var questionElement = document.createElement("div");
 
 
-    //If the user has answered (checked a value) the question, no error occurs. Otherwise you get an error (meaning that user needs to answer before he continues to the next question)!
+    //If the user has answered the question (checked a value), no error occurs. Otherwise you get an error (meaning that user needs to answer before he continues to the next question)!
     if (noError) {
 
       questionElement.innerHTML = `
@@ -147,61 +197,58 @@ $("document").ready(function () {
   }
 
   function skipToEnd() {
-    if (currentLanguage === "english") {
-      $(".question-container").html(
-        "Sorry you are not eligible!"
-      );
-    } else {
-      $(".question-container").html(
-        "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!"
-      );
-    }
+    currentLanguage === "greek" ? $(".question-container").html("Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!") : $(".question-container").html("We are sorry but you are not entitled to the Disability Mobility Card!");
     hideFormBtns();
   }
 
-  $("#startBtn").click(function () {    
-    //this will redirect us in same window
-    document.location.href = "form.html";
-
+  $("#startBtn").click(function () {
+    $("#intro").html("");
+    $("#languageBtn").hide();
+    $("#questions-btns").show();
   });
 
   function retrieveAnswers() {
     var allAnswers = [];
-    var result = "Πρέπει να υποβάλετε id1";
+    var result;
+    currentLanguage === "greek" ? result = "Πρέπει να υποβάλετε id1": result = "You must submit id1";
+
     getEvidencesById(1);
     for (var i = 0; i < totalQuestions; i++) {
       var answer = sessionStorage.getItem("answer_" + i);
       allAnswers.push(answer);
     }
-    alert(allAnswers); // display all answers in console
+    alert(allAnswers); //display all answers in console
 
-    if (allAnswers[0] === "Το έχασα και θέλω να το εκδώσω ξανά") {
+    if (allAnswers[0] === "Το έχασα και θέλω να το εκδώσω ξανά" || allAnswers[0] === "I lost it and want to reissue it") {
       result += " id9";
       getEvidencesById(9);
     }
     if (
       allAnswers[2] ===
       "Πολίτης τρίτων χωρών που έχουν καταστεί ανίκανοι για εργασία μετά από εργατικό ατύχημα σε ελληνικό έδαφος, ή είναι μέλη οικογένειας Έλληνα πολίτη ή πολίτη της ΕΕ, κατά τα οριζόμενα στο άρθρο 20 παρ.2 του Π.Δ. 106/2007 (135 Α ́), στο άρθρο 85 παρ. 4 του Ν. 4251/2014 ( 80 Α ́) και στο άρθρο 31 παρ. 1 του Ν. 4540/2018 (91 Α ́)"
+      || allAnswers[2] === "Third-country nationals unable to work due to a work accident on Greek territory, or family members of Greek citizens or EU citizens, as defined in Article 20(2) of Presidential Decree 106/2007 (Government Gazette 135 A'), Article 85(4) of Law 4251/2014 (Government Gazette 80 A'), and Article 31(1) of Law 4540/2018 (Government Gazette 91 A')"
     ) {
       result += " id11";
       getEvidencesById(11);
     }
-    if (allAnswers[4] === "Διαθέτω ιατρική γνωμάτευση") {
+    if (allAnswers[4] === "Διαθέτω ιατρική γνωμάτευση" || allAnswers[4]=== "I have a medical certificate") {
       result += " id6";
       getEvidencesById(6);
-    } else if (allAnswers[4] === "Διαθέτω απόφαση ΕΦΚΑ") {
+    } else if (allAnswers[4] === "Διαθέτω απόφαση ΕΦΚΑ" || allAnswers[4] === "I have a decision from EFKA (Social Insurance Institute)") {
       result += " id7";
       getEvidencesById(7);
     } else if (
       allAnswers[4] ===
       "Δικαιούχος προνοιακών επιδομάτων ΑμεΑ που χορηγεί ο ΟΠΕΚΑ"
+      || allAnswers[4] === "Recipient of disability benefits for disabled people (AMEA) granted by OPEKA (Center for Social Welfare and Solidarity)"
     ) {
       result += " id8";
       getEvidencesById(8);
     }
     if (
       allAnswers[5] ===
-      "Τυφλός ή οπτική αναπηρία-αναπηρία όρασης με ποσοστό 80% και άνω"
+      "Τυφλός ή οπτική αναπηρία-αναπηρία όρασης με ποσοστό 80% και άνω" ||
+      allAnswers[5] === "Blind or visually impaired with a disability rate of 80% and above"
     ) {
       result += " id10";
       getEvidencesById(10);
@@ -209,21 +256,22 @@ $("document").ready(function () {
     if (
       allAnswers[6] ===
       "Είμαι εξουσιοδοτημένο πρόσωπο του ατόμου στο οποίο θα ανήκει η κάρτα"
+      || allAnswers[6] === "I am an authorized person of the cardholder"
     ) {
       result += " id4 id3";
       getEvidencesById(3);
       getEvidencesById(4);
     } else if (
-      allAnswers[6] === "Είμαι κηδεμόνας του ατόμου στο οποίο θα ανήκει η κάρτα"
+      allAnswers[6] === "Είμαι κηδεμόνας του ατόμου στο οποίο θα ανήκει η κάρτα" || allAnswers[6] === "I am the guardian of the cardholder"
     ) {
       result += " id5 id3";
       getEvidencesById(3);
       getEvidencesById(5);
     }
-    if (allAnswers[7] === "Για υπεραστικά μόνο") {
+    if (allAnswers[7] === "Για υπεραστικά μόνο" || allAnswers[7] === "For long-distance transportation only") {
       result += " id12";
       getEvidencesById(12);
-    } else if (allAnswers[7] === "Για όλα όσα δικαιούμαι") {
+    } else if (allAnswers[7] === "Για όλα όσα δικαιούμαι" || allAnswers[7] === "For all entitlements") {
       result += " id2";
       getEvidencesById(2);
     }
@@ -231,10 +279,11 @@ $("document").ready(function () {
   }
 
   function submitForm() {
-    $(".question-container").html("Είστε δικαιούχος!");
+    currentLanguage === "greek" ? $(".question-container").html("Είστε δικαιούχος!") : $(".question-container").html("You are eligible!");
     const evidenceListElement = document.createElement("ul");
     evidenceListElement.setAttribute("id", "evidences");
     $(".question-container").append(evidenceListElement);
+    $("#faqContainer").load("faq.html");
     retrieveAnswers();
     hideFormBtns();
   }
@@ -269,11 +318,8 @@ $("document").ready(function () {
           currentQuestion++;
           loadQuestion(currentQuestion, true);
 
-          if (currentQuestion + 1 == totalQuestions && currentLanguage=="greek") {
-            $(this).text("Υποβολή");
-          }
-          else if (currentQuestion + 1 == totalQuestions && currentLanguage=="english"){
-            $(this).text("Submit");
+          if (currentQuestion + 1 == totalQuestions) {
+            currentLanguage === "greek" ? $(this).text("Υποβολή") : $(this).text("Submit"); 
           }
         }
       }
@@ -304,32 +350,16 @@ $("document").ready(function () {
     if (currentQuestion>=0 && currentQuestion<totalQuestions-1) loadQuestion(currentQuestion, true);
   });
 
-  function getEvidencesById(id) {
-    fetch(jsondata)
-      .then((response) => response.json())
-      .then((data) => {
-        const selectedEvidence = data.PublicService.evidence.find(
-          (evidence) => evidence.id === id
-        );
-        if (selectedEvidence) {
-          const evidenceListElement = document.getElementById("evidences");
-          selectedEvidence.evs.forEach((evsItem) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = evsItem.name;
-            evidenceListElement.appendChild(listItem);
-          });
-        } else {
-          console.log(`Evidence with ID '${givenEvidenceID}' not found.`);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching JSON:", error);
-      });
-  }
+  $("#questions-btns").hide();
 
-  // Get the number of questions and load the first question on page load
+  // Get all questions
   getQuestions().then(() => {
-    // Code inside this block executes only after the data is fetched
-    loadQuestion(currentQuestion, true);
+    // Get all evidences and load the first question on page load
+    getEvidences().then(() => {
+      // Code inside this block executes only after the data is fetched
+      loadQuestion(currentQuestion, true);
+    });
   });
+
+
 });
