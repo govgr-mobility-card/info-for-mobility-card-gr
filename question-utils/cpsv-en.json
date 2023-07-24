@@ -1,0 +1,206 @@
+{
+    "PublicService": {
+        "name": "Disabled Persons' Movement Card",
+        "description": "bla bla.",
+        "provider": {
+            "type": "PublicOrganization",
+            "name": "bla bla"
+        },
+        "evidence": [
+            {
+                "id": 1,
+                "evs": [
+                    {
+                        "id": "ev0001",
+                        "type": "Evidence",
+                        "name": "Application of the interested party or guardian or other authorized person",
+                        "description": "Application of the interested party or the guardian or another authorized person, issued by the offices of the competent services of the Prefectures or Citizen Service Centers (KEP)."
+                    },
+                    {
+                        "id": "ev0009",
+                        "type": "Evidence",
+                        "name": "Identification Card of the Interested Party or a photocopy of it",
+                        "description": "Identification Card of the Interested Party or a photocopy of it"
+                    },
+                    {
+                        "id": "ev0010",
+                        "type": "Evidence",
+                        "name": "Sworn statement under Law 1599/86 regarding the exact address of residence",
+                        "description": "Sworn statement under Law 1599/86 regarding the exact address of residence. The above Law should also declare the non-receipt of the Movement Card from another Prefecture or KEP."
+                    },
+                    {
+                        "id": "ev0011",
+                        "type": "Evidence",
+                        "name": "2 Recent Photographs",
+                        "description": "For the issuance of a new card, two recent photographs are required, one of which is affixed to the Card, and the other is attached to the application of the beneficiary."
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "evs": [
+                    {
+                        "id": "ev0013",
+                        "type": "Evidence",
+                        "name": "Tax Clearance Certificate",
+                        "description": "Recipients of free movement cards must submit a photocopy of the tax clearance certificate from the relevant Tax Office of the last tax return."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "evs": [
+                    {
+                        "id": "ev0002",
+                        "type": "Evidence",
+                        "name": "Identification Card of the Guardian or an authorized person",
+                        "description": "Application of the interested party or the guardian or another authorized person, issued by the offices of the competent services of the Prefectures or Citizen Service Centers (KEP)."
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "evs": [
+                    {
+                        "id": "ev0004",
+                        "type": "Evidence",
+                        "name": "Authorization",
+                        "description": "In case the submission of the documents is made by an authorized person and the authorization included in the application is not drawn up, it is necessary to present the identification card of the authorized person and the relevant authorization together with the necessary supporting documents."
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "evs": [
+                    {
+                        "id": "ev0003",
+                        "type": "Evidence",
+                        "name": "Guardianship Certificate",
+                        "description": "In case the submission of the documents is made by a guardian, it is necessary to present the identification card of the guardian and the guardianship certificate together with the necessary supporting documents."
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "evs": [
+                    {
+                        "id": "ev0005",
+                        "type": "Evidence",
+                        "name": "Medical Committee Opinion",
+                        "description": "Opinions of the Medical Committees under the provisions of PD 611/1977 (Government Gazette A' 198), Article 166 of Law 2683/1999 (Government Gazette A' 19), Articles 165 and 167 of Law 3528/2007 (Government Gazette A' 26), the Social Security Foundation (IKA), the Medical Committees of Article 6 of Law 3863/2010 (Government Gazette A' 115) (Disability Certification Centers - KE.P.A.) as well as those of ASUE, ANUE, AAYE, the Superior Health Committee of the Hellenic Police, the Superior Health Committee of the Fire Brigade (Article 1 of Law 4331/2015) in which the disability percentage is indicated: • Pathological-anatomical disability percentage of at least 67% or • Anatomico-physiological disability percentage of at least 67% or • Disability from a common disease of at least 67% or • Disability of at least 67% or • Pathological-anatomical damage of at least 67% or • Anatomico-physiological damage of at least 67% or • Life-long disability of at least 67%. In the opinions of KE.P.A., the inclusion of the pathological-anatomical percentage is not required. Decisions issued under the provisions of Law 2643/98 are not accepted."
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "evs": [
+                    {
+                        "id": "ev0006",
+                        "type": "Evidence",
+                        "name": "Decision of the Administrative Director of the Insurance Agency or EFKA",
+                        "description": "Decision of the Administrative Director of the Insurance Agency or EFKA (decision issued based on the opinion of the Medical Committee and indicating a disability percentage of 67% and above) for those beneficiaries who receive a lifetime pension based on this decision, without the need for an additional opinion of the Medical Committee, and which must state the following: • Pathological-anatomical disability percentage of at least 67% or • Anatomico-physiological disability percentage of at least 67% or • Disability from a common disease of at least 67% or • Disability of at least 67% or • Pathological-anatomical damage of at least 67% or • Anatomico-physiological damage of at least 67% or • Life-long disability of at least 67%."
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "evs": [
+                    {
+                        "id": "ev0007",
+                        "type": "Evidence",
+                        "name": "Certificate of Granting Allowance by OAED",
+                        "description": "Certificate of granting the allowance, for beneficiaries who receive financial assistance (disability allowance) from OAED or the relevant services, without the need for opinions of the Medical Committees. The certificate should indicate the disability percentage, the OAED decision number, the date of the Medical Committee opinion, and the expiration date of the beneficiary's entitlement to receive the allowance."
+                    },
+                    {
+                        "id": "ev0015",
+                        "type": "Evidence",
+                        "name": "Certificate of Total Annual Amount of OAED Allowance",
+                        "description": "In order to deduct the monetary amounts received as disability allowances from OAED from the total income, a certificate of the amount to be granted by OAED will be issued by the Community Centers upon a relevant request from the interested party whose income exceeds the above-mentioned income criteria."
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "evs": [
+                    {
+                        "id": "ev0016",
+                        "type": "Evidence",
+                        "name": "Certificate of Loss by Police Authority",
+                        "description": "In case of loss, which needs to be certified by the police authority, a new travel pass can be issued. However, if the pass is lost for the second time, it cannot be reissued."
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "evs": [
+                    {
+                        "id": "ev0012",
+                        "type": "Evidence",
+                        "name": "Additional Photograph",
+                        "description": "Especially for travel pass companions, three identical photos must be submitted, with one of them being affixed to the companion's pass."
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "evs": [
+                    {
+                        "id": "ev0008",
+                        "type": "Evidence",
+                        "name": "Medical Certificate of Hospitalization",
+                        "description": "For citizens of countries outside the EU who have become incapable of work due to a workplace accident in Greek territory, a Medical Certificate of Hospitalization from a Public Hospital is required, certifying the hospitalization following the accident."
+                    }
+                ]
+            },
+            {
+                "id": 12,
+                "evs": [
+                    {
+                        "id": "ev0014",
+                        "type": "Evidence",
+                        "name": "Declaration under Law 1599/86 for providing a pass only for long-distance KTEL",
+                        "description": "Beneficiaries who, with a declaration under Law 1599/86, state that they do not wish to obtain the relevant pass for Urban KTEL but only for Long-Distance, are not required to submit a clearance note."
+                    }
+                ]
+            }
+        ],
+        "criterion_requirements": [
+            {
+                "id": "cr0001",
+                "name": "Greek Citizenship"
+            },
+            {
+                "id": "cr0002",
+                "name": "Citizens of EU Member States, as well as citizens of EEA Member States (European Economic Area)"
+            },
+            {
+                "id": "cr0003",
+                "name": "Citizens of States included in the European Convention, ratified by Law 4017/1959 (Government Gazette 246/59 A')"
+            },
+            {
+                "id": "cr0004",
+                "name": "Third-country nationals who have become incapable of work due to a workplace accident in Greek territory, or are family members of Greek or EU citizens, as provided in articles 20 par. 2 of Law 106/2007 (Government Gazette A' 135), article 85 par. 4 of Law 4251/2014 (Government Gazette A' 80), and article 31 par. 1 of Law 4540/2018 (Government Gazette A' 91)"
+            },
+            {
+                "id": "cr0005",
+                "name": "Recognized refugees permanently residing in Greece, whose residence status in Greece is governed by the provisions of the 1951 Convention Relating to the Status of Refugees (Law 3989/1959, Government Gazette A' 201), as amended by the New York Protocol of 1967 on the Status of Refugees (Law 389/1968, Government Gazette A' 125), beneficiaries of subsidiary protection, and individuals in a residence status for humanitarian reasons"
+            },
+            {
+                "id": "cr0006",
+                "name": "Permanently and legally residing in Greece"
+            },
+            {
+                "id": "cr0007",
+                "name": "Have a disability rate of at least 67% or are beneficiaries of disability allowances provided by OAED (Manpower Employment Organization)"
+            },
+            {
+                "id": "cr0008",
+                "name": "Their annual total declared individual income does not exceed twenty-three thousand (23,000) euros, or their annual total declared family income does not exceed twenty-nine thousand (29,000) euros (the annual total declared family income of 29,000 euros is increased by 5,600 euros for each additional person beyond the beneficiary, residing and dependent on the taxpayer, if that person has a disability of 67% and above). The cash amounts provided by OAED as disability benefits are not included in the income thresholds."
+            },
+            {
+                "id": "cr0009",
+                "name": "Totally blind individuals (Law 958/1979, Government Gazette A' 191) and their companions are exempted from the income criteria, as defined above, according to decision 445/98 of the Council of Suspension of the Council of State, and they receive a travel pass regardless of their income limit."
+            }
+        ]
+    }
+}
