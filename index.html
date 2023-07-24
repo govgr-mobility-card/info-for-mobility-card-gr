@@ -32,7 +32,7 @@
         <div class="govgr-header__container">
             <div class="govgr-header__content">
                 <img class="govgr-header-logo" src="https://www.gov.gr/gov_gr_logo.svg" alt="gov.gr logo" />
-                <div class="govgr-header-title language-component" data-component="pageTitle">Δελτίο μετακίνησης ΑΜΕΑ</div>
+                <div class="govgr-header-title language-component" data-component="pageTitle" tabindex="1">Δελτίο μετακίνησης ΑΜΕΑ</div>
             </div>
         </div>
     </header>
@@ -40,28 +40,27 @@
     <div class="mask" id="mask-bottom"></div>
     
     <!-- Language switch button -->
-    <button class="govgr-btn govgr-btn-secondary language-component" data-component="languageBtn" onclick="toggleLanguage()">
+    <button class="govgr-btn govgr-btn-secondary language-component" data-component="languageBtn" tabindex="2" aria-label="change Language button" onclick="toggleLanguage()">
         EL
     </button>
 
     <!--  MAIN CONTAINER -->
-    <div class="govgr-width-container" id="content">
+    <div class="govgr-width-container" id="content">            
         <div class="govgr-main-wrapper">
             <div class="govgr-grid-column-two-thirds">
-                <h1 class="govgr-heading-xl language-component" data-component="pageTitle">Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023</h1>
-                <p class="govgr-body language-component" data-component="subTitle">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε
-                    πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
+                <h1 class="govgr-heading-xl language-component" data-component="pageTitle" tabindex="3">Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ για το 2023</h1>
+                <p class="govgr-body language-component" data-component="subTitle" tabindex="4">Ο παρών οδηγός δημιουργήθηκε ώστε να βοηθήσει τους χρήστες για οποιαδήποτε πληροφορία σχετικά με τα δελτία μετακίνησης ΑΜΕΑ.
                 </p>
             </div>
         </div>
-        <div class="question-container">
+        <div class="question-container" tabindex="5">
             <!-- here we load the question with JQuery, AJAX -->
         </div>
         <div class="inline-btns">
-            <button class="govgr-btn govgr-btn-secondary language-component" data-component="backButton" id="backButton">
+            <button class="govgr-btn govgr-btn-secondary language-component" data-component="backButton" id="backButton" tabindex="6">
                 Πίσω
             </button>
-            <button class="govgr-btn govgr-btn-primary govgr-btn-cta language-component" data-component="nextQuestion" id="nextQuestion">
+            <button class="govgr-btn govgr-btn-primary govgr-btn-cta language-component" data-component="nextQuestion" id="nextQuestion" tabindex="7">
                 Επόμενη ερώτηση
                 <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
                     <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
@@ -71,28 +70,28 @@
     </div>
 
     <!-- ACCESSIBILITY MENU -->
-    <div class="row ">
+    <div class="row">
         <div class="col">
             <div class="collapse multi-collapse" id="CollapseExample">
                 <div class="card card-body">
                     <nav id="accessibility-menu">
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch" tabindex="9">
                             <label class="form-check-label" for="cursor-button">Bigger Cursor</label>
                             <input id="cursor-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch" tabindex="10">
                             <label class="form-check-label" for="font-size-button">Big Font Size</label>
                             <input id="font-size-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch" tabindex="11">
                             <label class="form-check-label" for="read-aloud-button">Read Aloud</label>
                             <input id="read-aloud-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch" tabindex="12">
                             <label class="form-check-label" for="contrast-button">Change Contrast</label>
                             <input id="contrast-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch" tabindex="13">
                             <label class="form-check-label" for="reading-mask-button">Reading Mask</label>
                             <input id="reading-mask-button" class="form-check-input" type="checkbox" role="switch">
                         </div>
@@ -102,7 +101,7 @@
         </div>
     </div>
     <p class="text-right">
-        <a class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button" aria-expanded="false"
+        <a tabindex="8" class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button" aria-expanded="false"
             aria-controls="CollapseExample">
             <svg id="accessibility-icon" xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
