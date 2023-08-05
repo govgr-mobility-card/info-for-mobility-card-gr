@@ -59,6 +59,25 @@
   color: var(--contrast-bg);
 }
 
+/*high-contrast header*/
+.high-contrast .govgr-header {
+background: var(--orange-light);
+border-color:var(--orange);
+}
+
+.high-contrast #logo4,.high-contrast #logo5{
+  fill: var(--orange);
+}
+
+.high-contrast #logo1,.high-contrast #logo2,.high-contrast #logo3,.high-contrast #logo6{
+  fill: var(--contrast-bg);
+}
+
+.high-contrast .govgr-header-title{
+  color: var(--contrast-bg);
+}
+
+
 /*high-contrast switch*/
 
 .high-contrast .form-check-input:focus {
