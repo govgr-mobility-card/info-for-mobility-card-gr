@@ -20,12 +20,6 @@
   right: 10px;
 }
 
-.inline-btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 /* High Contrast */
 .high-contrast {
   background-color: var(--contrast-bg);

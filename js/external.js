@@ -221,7 +221,7 @@ $("document").ready(function () {
       var answer = sessionStorage.getItem("answer_" + i);
       allAnswers.push(answer);
     }
-    alert(allAnswers); //display all answers in console
+    // alert(allAnswers); //display all answers in console
 
     if (allAnswers[0] === "Το έχασα και θέλω να το εκδώσω ξανά" || allAnswers[0] === "I lost it and want to reissue it") {
       result += " id9";
@@ -313,9 +313,6 @@ $("document").ready(function () {
 
         //if the questions are finished then...
         if (currentQuestion + 1 == totalQuestions) {
-          alert("submit");
-
-          // retrieve all answers
           submitForm();
         }
         // otherwise...
