@@ -11,9 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.css" rel="stylesheet" crossorigin="anonymous" />
 
     <!-- Digigov CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/@digigov/css@latest/dist/digigov.css" rel="stylesheet"
-        crossorigin="anonymous" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@digigov/css@latest/dist/digigov.css" rel="stylesheet"
+        crossorigin="anonymous" /> -->
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="@digigov-css_v0.31.0/digigov.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -43,7 +44,7 @@
                 <div class="govgr-header-title language-component" data-component="pageTitle" tabindex="1">Δελτίο μετακίνησης ΑΜΕΑ</div>
             </div>
         </div>
-        <div>
+        
             <!-- Language switch button -->
             <button id="languageBtn" aria-haspopup="true" aria-expanded="false" type="button"
                 class="btn btn-link text-decoration-none dropdown-toggle-no-caret" id="__BVID__58__BV_toggle_">
@@ -53,7 +54,7 @@
                     <span class="lang-code language-component" data-component="languageBtn">EL</span>
                 </div>
             </button>
-        </div>
+       
     </header>
     <div class="mask" id="mask-up"></div>
     <div class="mask" id="mask-bottom"></div>
@@ -95,7 +96,7 @@
                 </button>
                 <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
                     <span class="language-component" data-component="nextQuestion" tabindex="7">Επόμενη ερώτηση</span>
-                    <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" class="govgr-arrow--right govgr-svg-icon" focusable="false" aria-hidden="true">
                         <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
                     </svg>
                 </button>
@@ -230,7 +231,6 @@
               </ul>
             </div>
         </details>
-
     </div>
 
     <!-- FOOTER  -->
