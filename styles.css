@@ -5,6 +5,10 @@
   --contrast-color: white;
 }
 
+html, body
+{
+  overflow-x: hidden;
+}
 .card {
   float: right;
 }
@@ -154,13 +158,12 @@ header button div {
   padding: 10px;
   background-color: #00aeef!important;
   border-radius: 4px;
-  color: black;
+  color: white;
   flex-wrap: wrap;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
+header{
+  gap: 0;
 }
 
 
