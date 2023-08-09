@@ -3,12 +3,15 @@
   --orange: #ff5110;
   --contrast-bg: black;
   --contrast-color: white;
+  --contrast-link:rgb(177, 177, 177);
 }
 
 html, body
 {
   overflow-x: hidden;
 }
+
+/* accessibillity menu*/
 .card {
   float: right;
 }
@@ -24,12 +27,59 @@ html, body
   right: 10px;
 }
 
+nav div {
+  padding: 10px;
+}
+
+/*masks*/
+#mask-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--contrast-bg);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+#mask-bottom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--contrast-bg);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+/*language button*/
+#languageBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 7px;
+  gap: 7px;
+  padding: 10px;
+  background-color: #00aeef;
+  border-radius: 4px;
+  color: white;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 /* High Contrast */
 .high-contrast {
   background-color: var(--contrast-bg);
   color: var(--contrast-color);
 }
 
+/*high-contrast accessbillity menu*/
 .high-contrast #accessibility-icon {
   fill: var(--orange);
 }
@@ -43,6 +93,7 @@ html, body
   background-color: var(--contrast-color);
   color: var(--contrast-bg);
 }
+
 .high-contrast .card {
   background-color: var(--contrast-bg);
   border: 1px solid gray;
@@ -52,29 +103,11 @@ html, body
   background-color: var(--orange-light);
   color: var(--contrast-bg);
 }
+
 .high-contrast .govgr-btn-cta:hover {
   background-color: var(--orange);
   color: var(--contrast-bg);
 }
-
-/*high-contrast header*/
-.high-contrast .govgr-header {
-background: var(--orange-light);
-border-color:var(--orange);
-}
-
-.high-contrast #logo4,.high-contrast #logo5{
-  fill: var(--orange);
-}
-
-.high-contrast #logo1,.high-contrast #logo2,.high-contrast #logo3,.high-contrast #logo6{
-  fill: var(--contrast-bg);
-}
-
-.high-contrast .govgr-header-title{
-  color: var(--contrast-bg);
-}
-
 
 /*high-contrast switch*/
 
@@ -102,65 +135,85 @@ border-color:var(--orange);
   border-color: var(--orange);
 }
 
+/*high-contrast header*/
+.high-contrast .govgr-header {
+background: var(--orange-light);
+border-color:var(--orange);
+}
+
+.high-contrast #logo4,.high-contrast #logo5{
+  fill: var(--orange);
+}
+
+.high-contrast #logo1,.high-contrast #logo2,.high-contrast #logo3,.high-contrast #logo6{
+  fill: var(--contrast-bg);
+}
+
+.high-contrast .govgr-header-title{
+  color: var(--contrast-bg);
+}
+
+/*high-contrast body*/
 .high-contrast .govgr-body {
-  color: aliceblue;
+  color: var(--contrast-color);
 }
 
-nav div {
-  padding: 10px;
+/*high-contrast footer*/
+.high-contrast .govgr-footer {
+  background:var(--contrast-bg);
+  border-color:var(--orange);
+  color: var(--contrast-color) !important;
 }
 
-#mask-up {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--contrast-bg);
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-}
-
-#mask-bottom {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: var(--contrast-bg);
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-}
-
-.high-contrast {
-  background-color: var(--contrast-bg);
-  /* color: var(--contrast-color); */
-}
-
+/*high-contrast for mask*/
 .high-contrast #mask-bottom,
 .high-contrast #mask-up {
   background-color: var(--contrast-color);
 }
 
+/*high-contrast for buttons*/
 .high-contrast button {
   background-color: var(--contrast-color);
   color: var(--contrast-bg);
 }
 
-header button div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 7px;
-  gap: 7px;
-  padding: 10px;
-  background-color: #00aeef!important;
-  border-radius: 4px;
-  color: white;
-  flex-wrap: wrap;
+/*high-contrast for language button*/
+.high-contrast #languageBtn { 
+   background-color: var(--orange);
+   color: var(--contrast-bg);
 }
+.high-contrast #languageBtn path{ 
+   fill: var(--contrast-bg);
+}
+
+/*high-contrast for accordion section*/
+.high-contrast .govgr-accordion__section{
+  color: var(--contrast-color);
+}
+.high-contrast .govgr-accordion .govgr-accordion__section-button{
+  color: var(--contrast-color);
+}
+
+.high-contrast .govgr-accordion .govgr-accordion__section-summary:hover{
+  background-color: grey;
+}
+
+.high-contrast .govgr-accordion .govgr-accordion__section-summary:focus .govgr-accordion__section-button{
+  color:black;
+}
+
+/*high-contrast for links*/
+.high-contrast .govgr-link {
+  color: var(--contrast-link);
+}
+.high-contrast .govgr-link:hover{
+  color: var(--contrast-color) !important;
+}
+
+
+
+
+
 
 
 
