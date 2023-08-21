@@ -246,7 +246,8 @@ $("document").ready(function () {
       allAnswers[5] === "1" || (allAnswers[5] === "2" && allAnswers[8] === "1")
     ) { 
       getEvidencesById(10);
-      setResult("Δικαιούται και ο συνοδός");
+      currentLanguage === "greek" ? setResult("Δικαιούται και ο συνοδός"): setResult("The companion is also entitled");
+
     }
     
     if (
@@ -265,10 +266,10 @@ $("document").ready(function () {
     } else if (allAnswers[7] === "2") {
       getEvidencesById(2);
       if(allAnswers[8] === "1"){
-        setResult("Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της Περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς τους μετακινήσεις με υπεραστικά ΚΤΕΛ");
+        currentLanguage === "greek" ? setResult("Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της Περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς σου μετακινήσεις με υπεραστικά ΚΤΕΛ") : setResult("You are entitled to free travel with the urban public transport of your Region and a 50% discount for travel outside the boundaries of your Region with long-distance bus services KTEL");
       }
       else if(allAnswers[8] === "2"){
-        setResult("Δικαιούσαι έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς τους μετακινήσεις με υπεραστικά ΚΤΕΛ");
+        currentLanguage === "greek" ? setResult("Δικαιούσαι έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς σου μετακινήσεις με υπεραστικά ΚΤΕΛ"): setResult("You are entitled to a 50% discount for journeys outside the boundaries of your Region with long-distance bus services KTEL");
       }
     }
   }

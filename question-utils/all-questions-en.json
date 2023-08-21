@@ -35,8 +35,8 @@
     {
         "id": 5,
         "question": "Which of the following categories do you belong to?",
-        "options": ["Severe and Profound Mental Retardation - Intelligence Quotient below 34, or mental retardation with a disability rate of 80% or more, or pervasive developmental disorders (infantile autism, autism) with a disability rate of 80% or more",
-                   "Blind or visually impaired with a disability rate of 80% and above",
+        "options": ["Blind or visually impaired with a disability rate of 80% and above",
+                    "Severe and Profound Mental Retardation - Intelligence Quotient below 34, or mental retardation with a disability rate of 80% or more, or pervasive developmental disorders (infantile autism, autism) with a disability rate of 80% or more",
                    "Any disability of at least 67%"
         ]
     },
