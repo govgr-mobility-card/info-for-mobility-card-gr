@@ -21,7 +21,7 @@
     },
     {
         "id": 3,
-        "question": "Do you have a disability rate of 67% and above?",
+        "question": "Do you have a disability rate of 67% and above or are you entitled to the preferential OPEKA benefit?",
         "options": ["YES", "NO"]
     },
     {
@@ -35,8 +35,9 @@
     {
         "id": 5,
         "question": "Which of the following categories do you belong to?",
-        "options": ["Any disability of at least 67% and above or an intelligence quotient (IQ) below 34",
-                   "Blind or visually impaired with a disability rate of 80% and above"
+        "options": ["Severe and Profound Mental Retardation - Intelligence Quotient below 34, or mental retardation with a disability rate of 80% or more, or pervasive developmental disorders (infantile autism, autism) with a disability rate of 80% or more",
+                   "Blind or visually impaired with a disability rate of 80% and above",
+                   "Any disability of at least 67%"
         ]
     },
     {

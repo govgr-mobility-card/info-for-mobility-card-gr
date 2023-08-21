@@ -210,8 +210,32 @@ border-color:var(--orange);
   color: var(--contrast-color) !important;
 }
 
+#evidences ol {
+  list-style: none;
+  counter-reset: item;
+}
+#evidences li {
+  counter-increment: item;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+#evidences li:before {
+  margin-right: 10px;
+  content: counter(item);
+  background: #0065b3;
+  color: white;
+  width: 1.5em;
+  text-align: center;
+  display: inline-block;
+}
 
+.high-contrast #evidences li:before{
+  background: var(--orange);
+}
 
+.answer{
+  font-size: 20px;
+}
 
 
 
