@@ -1,11 +1,6 @@
 {
     "PublicService": {
         "name": "Disabled Persons' Movement Card",
-        "description": "bla bla.",
-        "provider": {
-            "type": "PublicOrganization",
-            "name": "bla bla"
-        },
         "evidence": [
             {
                 "id": 1,
@@ -54,7 +49,7 @@
                         "id": "ev0002",
                         "type": "Evidence",
                         "name": "Identification Card of the Guardian or an authorized person",
-                        "description": "Application of the interested party or the guardian or another authorized person, issued by the offices of the competent services of the Prefectures or Citizen Service Centers (KEP)."
+                        "description": "Identity Card of guardian or authorized person."
                     }
                 ]
             },
