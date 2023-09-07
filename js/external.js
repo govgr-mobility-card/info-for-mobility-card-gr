@@ -1,9 +1,13 @@
 $("document").ready(function () {
   var currentQuestion = 0;
   var totalQuestions = 0;
+  var totalFaq = 0;
   var userAnswers = {};
   var all_questions;
   var all_questions_en;
+  var faq;
+  var faq_en;
+
   //hide the form buttons when its necessary
   function hideFormBtns() {
     $("#nextQuestion").hide();
@@ -85,6 +89,41 @@ $("document").ready(function () {
     });
   }
 
+  function getFaq(){
+    return fetch("question-utils/faq.json")
+    .then((response) => response.json())
+    .then((data) => {
+      faq = data;
+      totalFaq = data.length;
+
+      // Fetch the second JSON file
+      return fetch("question-utils/faq-en.json")
+        .then((response) => response.json())
+        .then((dataEn) => {
+          faq_en = dataEn;
+        })
+        .catch((error) => {
+          console.error("Failed to fetch faq-en:", error);
+
+          // Show error message to the user
+          const errorMessage = document.createElement("div");
+          errorMessage.textContent =
+            "Error: Failed to fetch faq-en.json.";
+          $(".question-container").html(errorMessage);
+
+        });
+    })
+    .catch((error) => {
+      console.error("Failed to fetch faq:", error);
+
+      // Show error message to the user
+      const errorMessage = document.createElement("div");
+      errorMessage.textContent = "Error: Failed to fetch faq.json.";
+      $(".question-container").html(errorMessage);
+
+    });
+  }
+
   function getEvidencesById(id) {
     var selectedEvidence;
     currentLanguage === "greek" ? selectedEvidence = all_evidences : selectedEvidence = all_evidences_en;
@@ -108,6 +147,54 @@ $("document").ready(function () {
     const result = document.createElement("div");
     result.textContent= text;
     resultWrapper.appendChild(result);
+  }
+
+  function loadFaqs() {
+
+    var faqData = currentLanguage === "greek" ? faq : faq_en;
+    var faqTitle = currentLanguage === "greek" ? "Συχνές Ερωτήσεις" : "Frequently Asked Questions";
+
+    var faqElement = document.createElement("div");
+
+    faqElement.innerHTML = `
+        <div class="govgr-heading-m language-component" data-component="faq">
+          ${faqTitle}
+        </div>
+    `;
+
+    faqData.forEach(faqItem => {
+      var faqSection = document.createElement("details");
+      faqSection.className = "govgr-accordion__section";
+      faqSection.tabIndex = 13;
+  
+      faqSection.innerHTML = `
+        <summary class="govgr-accordion__section-summary">
+          <h2 class="govgr-accordion__section-heading">
+            <span class="govgr-accordion__section-button">
+              ${faqItem.question}
+            </span>
+          </h2>
+        </summary>
+        <div class="govgr-accordion__section-content">
+          <p class="govgr-body">
+          ${convertURLsToLinks(faqItem.answer)}
+          </p>
+        </div>
+      `;
+  
+      faqElement.appendChild(faqSection);
+    });
+  
+    // faqContainer.appendChild(faqElement);
+  
+    $(".faqContainer").html(faqElement);
+  }
+
+  function convertURLsToLinks(text) {
+    return text.replace(
+      /https:\/\/www\.gov\.gr\/[\S]+/g,
+      '<a href="$&" target="_blank">' + "myKEPlive" + '</a>'+'.'
+    );
   }
 
   //Εachtime back/next buttons are pressed the form loads a question
@@ -348,6 +435,7 @@ $("document").ready(function () {
 
   $("#languageBtn").click(function () {
     toggleLanguage();
+    loadFaqs();
     // if is false only when the user is skipedToEnd and trying change the language
     if (currentQuestion>=0 && currentQuestion<totalQuestions-1) loadQuestion(currentQuestion, true);
   });
@@ -356,10 +444,14 @@ $("document").ready(function () {
 
   // Get all questions
   getQuestions().then(() => {
-    // Get all evidences and load the first question on page load
+    // Get all evidences 
     getEvidences().then(() => {
-      // Code inside this block executes only after the data is fetched
-      loadQuestion(currentQuestion, true);
+      // Get all faq and load the first question on page load
+      getFaq().then(() => {
+        // Code inside this block executes only after all data is fetched
+        loadQuestion(currentQuestion, true);
+        loadFaqs();
+      });
     });
   });
 

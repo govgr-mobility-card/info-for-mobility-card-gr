@@ -1,0 +1,27 @@
+[
+    {
+        "id": 0,
+        "question": "How much does the issuance of the Mobility Card for Disabled cost?",
+        "answer": "It is provided free of charge."
+    },
+    {
+        "id": 1,
+        "question": "What is the renewal and issuance date?",
+        "answer": "For the renewal and issuance of new Mobility Card for Disabled, the start date is set as January 23, 2023, and the end date is October 31, 2023."
+    },
+    {
+        "id": 2,
+        "question": "What is the validity period of the Mobility Card for Disabled ?",
+        "answer": "The card is valid from the date of issuance until December 31, 2023."
+    },
+    {
+        "id": 3,
+        "question": "Is the issuance process of the Mobility Card for Disabled available digitally?",
+        "answer": "No, it is not available digitally."
+    },
+    {
+        "id": 4,
+        "question": "Are there remote service points available?",
+        "answer": "Yes, there are. You can visit https://www.gov.gr/ipiresies/polites-kai-kathemerinoteta/ex-apostaseos-exuperetese-politon/exuperetese-me-telediaskepse-apo-kentro-exupereteses-politon-kep."
+    }
+]
