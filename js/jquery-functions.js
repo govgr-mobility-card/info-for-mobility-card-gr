@@ -1,10 +1,11 @@
 $("document").ready(function () {
   var currentQuestion = 0;
   var totalQuestions = 0;
-  var totalFaq = 0;
   var userAnswers = {};
   var all_questions;
   var all_questions_en;
+  var all_evidences;
+  var all_evidences_en;
   var faq;
   var faq_en;
 
@@ -52,82 +53,84 @@ $("document").ready(function () {
       });
   }
 
-  function getEvidences(){
+  //Once the form begins, the evidences' data and length are fetched.
+  function getEvidences() {
     return fetch("question-utils/cpsv.json")
-    .then((response) => response.json())
-    .then((data) => {
-      all_evidences = data;
-      totalEvidences = data.length;
+      .then((response) => response.json())
+      .then((data) => {
+        all_evidences = data;
+        totalEvidences = data.length;
 
-      // Fetch the second JSON file
-      return fetch("question-utils/cpsv-en.json")
-        .then((response) => response.json())
-        .then((dataEn) => {
-          all_evidences_en = dataEn;
-        })
-        .catch((error) => {
-          console.error("Failed to fetch cpsv-en:", error);
+        // Fetch the second JSON file
+        return fetch("question-utils/cpsv-en.json")
+          .then((response) => response.json())
+          .then((dataEn) => {
+            all_evidences_en = dataEn;
+          })
+          .catch((error) => {
+            console.error("Failed to fetch cpsv-en:", error);
 
-          // Show error message to the user
-          const errorMessage = document.createElement("div");
-          errorMessage.textContent =
-            "Error: Failed to fetch cpsv-en.json.";
-          $(".question-container").html(errorMessage);
+            // Show error message to the user
+            const errorMessage = document.createElement("div");
+            errorMessage.textContent = "Error: Failed to fetch cpsv-en.json.";
+            $(".question-container").html(errorMessage);
 
-          hideFormBtns();
-        });
-    })
-    .catch((error) => {
-      console.error("Failed to fetch cpsv:", error);
+            hideFormBtns();
+          });
+      })
+      .catch((error) => {
+        console.error("Failed to fetch cpsv:", error);
 
-      // Show error message to the user
-      const errorMessage = document.createElement("div");
-      errorMessage.textContent = "Error: Failed to fetch cpsv.json.";
-      $(".question-container").html(errorMessage);
+        // Show error message to the user
+        const errorMessage = document.createElement("div");
+        errorMessage.textContent = "Error: Failed to fetch cpsv.json.";
+        $(".question-container").html(errorMessage);
 
-      hideFormBtns();
-    });
+        hideFormBtns();
+      });
   }
 
-  function getFaq(){
+  //Once the form begins, the faqs' data is fetched.
+  function getFaq() {
     return fetch("question-utils/faq.json")
-    .then((response) => response.json())
-    .then((data) => {
-      faq = data;
-      totalFaq = data.length;
+      .then((response) => response.json())
+      .then((data) => {
+        faq = data;
+        totalFaq = data.length;
 
-      // Fetch the second JSON file
-      return fetch("question-utils/faq-en.json")
-        .then((response) => response.json())
-        .then((dataEn) => {
-          faq_en = dataEn;
-        })
-        .catch((error) => {
-          console.error("Failed to fetch faq-en:", error);
+        // Fetch the second JSON file
+        return fetch("question-utils/faq-en.json")
+          .then((response) => response.json())
+          .then((dataEn) => {
+            faq_en = dataEn;
+          })
+          .catch((error) => {
+            console.error("Failed to fetch faq-en:", error);
 
-          // Show error message to the user
-          const errorMessage = document.createElement("div");
-          errorMessage.textContent =
-            "Error: Failed to fetch faq-en.json.";
-          $(".question-container").html(errorMessage);
+            // Show error message to the user
+            const errorMessage = document.createElement("div");
+            errorMessage.textContent = "Error: Failed to fetch faq-en.json.";
+            $(".question-container").html(errorMessage);
+          });
+      })
+      .catch((error) => {
+        console.error("Failed to fetch faq:", error);
 
-        });
-    })
-    .catch((error) => {
-      console.error("Failed to fetch faq:", error);
-
-      // Show error message to the user
-      const errorMessage = document.createElement("div");
-      errorMessage.textContent = "Error: Failed to fetch faq.json.";
-      $(".question-container").html(errorMessage);
-
-    });
+        // Show error message to the user
+        const errorMessage = document.createElement("div");
+        errorMessage.textContent = "Error: Failed to fetch faq.json.";
+        $(".question-container").html(errorMessage);
+      });
   }
 
   function getEvidencesById(id) {
     var selectedEvidence;
-    currentLanguage === "greek" ? selectedEvidence = all_evidences : selectedEvidence = all_evidences_en;
-    selectedEvidence = selectedEvidence.PublicService.evidence.find((evidence) => evidence.id === id) 
+    currentLanguage === "greek"
+      ? (selectedEvidence = all_evidences)
+      : (selectedEvidence = all_evidences_en);
+    selectedEvidence = selectedEvidence.PublicService.evidence.find(
+      (evidence) => evidence.id === id
+    );
 
     if (selectedEvidence) {
       const evidenceListElement = document.getElementById("evidences");
@@ -142,17 +145,19 @@ $("document").ready(function () {
   }
 
   //text added in the final result
-  function setResult(text){
+  function setResult(text) {
     const resultWrapper = document.getElementById("resultWrapper");
     const result = document.createElement("div");
-    result.textContent= text;
+    result.textContent = text;
     resultWrapper.appendChild(result);
   }
 
   function loadFaqs() {
-
     var faqData = currentLanguage === "greek" ? faq : faq_en;
-    var faqTitle = currentLanguage === "greek" ? "Συχνές Ερωτήσεις" : "Frequently Asked Questions";
+    var faqTitle =
+      currentLanguage === "greek"
+        ? "Συχνές Ερωτήσεις"
+        : "Frequently Asked Questions";
 
     var faqElement = document.createElement("div");
 
@@ -162,11 +167,11 @@ $("document").ready(function () {
         </div>
     `;
 
-    faqData.forEach(faqItem => {
+    faqData.forEach((faqItem) => {
       var faqSection = document.createElement("details");
       faqSection.className = "govgr-accordion__section";
       faqSection.tabIndex = 13;
-  
+
       faqSection.innerHTML = `
         <summary class="govgr-accordion__section-summary">
           <h2 class="govgr-accordion__section-heading">
@@ -181,19 +186,18 @@ $("document").ready(function () {
           </p>
         </div>
       `;
-  
+
       faqElement.appendChild(faqSection);
     });
-  
-    // faqContainer.appendChild(faqElement);
-  
+
     $(".faqContainer").html(faqElement);
   }
 
+  // get the url from faqs and link it
   function convertURLsToLinks(text) {
     return text.replace(
       /https:\/\/www\.gov\.gr\/[\S]+/g,
-      '<a href="$&" target="_blank">' + "myKEPlive" + '</a>'+'.'
+      '<a href="$&" target="_blank">' + "myKEPlive" + "</a>" + "."
     );
   }
 
@@ -206,13 +210,13 @@ $("document").ready(function () {
       $("#backButton").show();
     }
 
-    currentLanguage === "greek" ? question = all_questions[questionId] : question = all_questions_en[questionId];
+    currentLanguage === "greek"
+      ? (question = all_questions[questionId])
+      : (question = all_questions_en[questionId]);
     var questionElement = document.createElement("div");
-
 
     //If the user has answered the question (checked a value), no error occurs. Otherwise you get an error (meaning that user needs to answer before he continues to the next question)!
     if (noError) {
-
       questionElement.innerHTML = `
                 <div class='govgr-field'>
                     <fieldset class='govgr-fieldset' aria-describedby='radio-country'>
@@ -271,21 +275,23 @@ $("document").ready(function () {
                 </fieldset>
             </div>
         `;
-      
-      //The reason for manually updating the components of the <<error>> questionElement is because the 
-      //querySelectorAll method works on elements that are already in the DOM (Document Object Model) 
-      if (currentLanguage === "english"){
+
+      //The reason for manually updating the components of the <<error>> questionElement is because the
+      //querySelectorAll method works on elements that are already in the DOM (Document Object Model)
+      if (currentLanguage === "english") {
         // Manually update the english format of the last 4 text elements in change-language.js
-          //chooseAnswer: "Choose your answer",
-          //oneAnswer: "You can choose only one option.",
-          //errorAn: "Error:",
-          //choose: "You must choose one option"
-        var components = Array.from(questionElement.querySelectorAll(".language-component"));
+        //chooseAnswer: "Choose your answer",
+        //oneAnswer: "You can choose only one option.",
+        //errorAn: "Error:",
+        //choose: "You must choose one option"
+        var components = Array.from(
+          questionElement.querySelectorAll(".language-component")
+        );
         components.slice(-4).forEach(function (component) {
           var componentName = component.dataset.component;
-          component.textContent = languageContent[currentLanguage][componentName];
+          component.textContent =
+            languageContent[currentLanguage][componentName];
         });
-
       }
     }
 
@@ -294,7 +300,10 @@ $("document").ready(function () {
 
   function skipToEnd() {
     const errorEnd = document.createElement("div");
-    const error = currentLanguage === "greek" ? "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑμεΑ!" : "We are sorry but you are not entitled to the Disability Mobility Card!";
+    const error =
+      currentLanguage === "greek"
+        ? "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑΜΕΑ!"
+        : "We are sorry but you are not entitled to the Disability Mobility Card!";
     errorEnd.className = "govgr-error-summary";
     errorEnd.textContent = error;
     $(".question-container").html(errorEnd);
@@ -319,35 +328,30 @@ $("document").ready(function () {
     if (allAnswers[0] === "2") {
       getEvidencesById(9);
     }
-    if (
-      allAnswers[2] === "4"
-    ) {
+    if (allAnswers[2] === "4") {
       getEvidencesById(11);
     }
     if (allAnswers[4] === "1") {
       getEvidencesById(6);
     } else if (allAnswers[4] === "2") {
       getEvidencesById(7);
-    } else if (
-      allAnswers[4] === "3"
-    ) {
+    } else if (allAnswers[4] === "3") {
       getEvidencesById(8);
     }
     if (
-      allAnswers[5] === "1" || (allAnswers[5] === "2" && allAnswers[8] === "1")
-    ) { 
-      getEvidencesById(10);
-      currentLanguage === "greek" ? setResult("Δικαιούται και ο συνοδός"): setResult("The companion is also entitled");
-    }
-    
-    if (
-      allAnswers[6] === "2"
+      allAnswers[5] === "1" ||
+      (allAnswers[5] === "2" && allAnswers[8] === "1")
     ) {
+      getEvidencesById(10);
+      currentLanguage === "greek"
+        ? setResult("Δικαιούται και ο συνοδός")
+        : setResult("The companion is also entitled");
+    }
+
+    if (allAnswers[6] === "2") {
       getEvidencesById(3);
       getEvidencesById(4);
-    } else if (
-      allAnswers[6] === "3"
-    ) {
+    } else if (allAnswers[6] === "3") {
       getEvidencesById(3);
       getEvidencesById(5);
     }
@@ -355,23 +359,46 @@ $("document").ready(function () {
       getEvidencesById(12);
     } else if (allAnswers[7] === "2") {
       getEvidencesById(2);
-      if(allAnswers[8] === "1"){
-        currentLanguage === "greek" ? setResult("Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της Περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς σου μετακινήσεις με υπεραστικά ΚΤΕΛ") : setResult("You are entitled to free travel with the urban public transport of your Region and a 50% discount for travel outside the boundaries of your Region with long-distance bus services KTEL");
-      }
-      else if(allAnswers[8] === "2"){
-        currentLanguage === "greek" ? setResult("Δικαιούσαι έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς σου μετακινήσεις με υπεραστικά ΚΤΕΛ"): setResult("You are entitled to a 50% discount for journeys outside the boundaries of your Region with long-distance bus services KTEL");
+      if (allAnswers[8] === "1") {
+        currentLanguage === "greek"
+          ? setResult(
+              "Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της Περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς σου μετακινήσεις με υπεραστικά ΚΤΕΛ"
+            )
+          : setResult(
+              "You are entitled to free travel with the urban public transport of your Region and a 50% discount for travel outside the boundaries of your Region with long-distance bus services KTEL"
+            );
+      } else if (allAnswers[8] === "2") {
+        currentLanguage === "greek"
+          ? setResult(
+              "Δικαιούσαι έκπτωση 50% για τις εκτός ορίων της Περιφέρειάς σου μετακινήσεις με υπεραστικά ΚΤΕΛ"
+            )
+          : setResult(
+              "You are entitled to a 50% discount for journeys outside the boundaries of your Region with long-distance bus services KTEL"
+            );
       }
     }
   }
 
   function submitForm() {
     const resultWrapper = document.createElement("div");
-    currentLanguage === "greek" ? $(".question-container").html("<div class='answer'><b>Είστε δικαιούχος!</b></div>") : $(".question-container").html("<div class='answer'><b>You are eligible!</b></div>");
+    currentLanguage === "greek"
+      ? $(".question-container").html(
+          "<div class='answer'><b>Είστε δικαιούχος!</b></div>"
+        )
+      : $(".question-container").html(
+          "<div class='answer'><b>You are eligible!</b></div>"
+        );
     resultWrapper.setAttribute("id", "resultWrapper");
     $(".question-container").append(resultWrapper);
     const evidenceListElement = document.createElement("ol");
     evidenceListElement.setAttribute("id", "evidences");
-    currentLanguage === "greek" ? $(".question-container").append("<br /><br /><div class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το Δελτίο Μετακίνησης είναι τα εξής:</div><br />") : $(".question-container").append("<br /><br /><div class='answer'>The documents you need to provide in order to receive your Mobility Card are the following:</div><br />");
+    currentLanguage === "greek"
+      ? $(".question-container").append(
+          "<br /><br /><div class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το Δελτίο Μετακίνησης είναι τα εξής:</div><br />"
+        )
+      : $(".question-container").append(
+          "<br /><br /><div class='answer'>The documents you need to provide in order to receive your Mobility Card are the following:</div><br />"
+        );
     $(".question-container").append(evidenceListElement);
     $("#faqContainer").load("faq.html");
     retrieveAnswers();
@@ -379,24 +406,28 @@ $("document").ready(function () {
   }
 
   $("#nextQuestion").click(function () {
-    
     if ($(".govgr-radios__input").is(":checked")) {
-      var selectedRadioButtonIndex = $('input[name="question-option"]').index($('input[name="question-option"]:checked'))+1;
+      var selectedRadioButtonIndex =
+        $('input[name="question-option"]').index(
+          $('input[name="question-option"]:checked')
+        ) + 1;
       console.log(selectedRadioButtonIndex);
-      if (
-        currentQuestion === 0 && selectedRadioButtonIndex === 3) {
-        currentQuestion=-1;
+      if (currentQuestion === 0 && selectedRadioButtonIndex === 3) {
+        currentQuestion = -1;
         skipToEnd();
       } else if (currentQuestion === 1 && selectedRadioButtonIndex === 2) {
-        currentQuestion=-1;
+        currentQuestion = -1;
         skipToEnd();
       } else if (currentQuestion === 3 && selectedRadioButtonIndex === 2) {
-        currentQuestion=-1;
+        currentQuestion = -1;
         skipToEnd();
       } else {
         //save selectedRadioButtonIndex to the storage
         userAnswers[currentQuestion] = selectedRadioButtonIndex;
-        sessionStorage.setItem("answer_" + currentQuestion, selectedRadioButtonIndex); // save answer to session storage
+        sessionStorage.setItem(
+          "answer_" + currentQuestion,
+          selectedRadioButtonIndex
+        ); // save answer to session storage
 
         //if the questions are finished then...
         if (currentQuestion + 1 == totalQuestions) {
@@ -408,7 +439,9 @@ $("document").ready(function () {
           loadQuestion(currentQuestion, true);
 
           if (currentQuestion + 1 == totalQuestions) {
-            currentLanguage === "greek" ? $(this).text("Υποβολή") : $(this).text("Submit"); 
+            currentLanguage === "greek"
+              ? $(this).text("Υποβολή")
+              : $(this).text("Submit");
           }
         }
       }
@@ -437,14 +470,15 @@ $("document").ready(function () {
     toggleLanguage();
     loadFaqs();
     // if is false only when the user is skipedToEnd and trying change the language
-    if (currentQuestion>=0 && currentQuestion<totalQuestions-1) loadQuestion(currentQuestion, true);
+    if (currentQuestion >= 0 && currentQuestion < totalQuestions - 1)
+      loadQuestion(currentQuestion, true);
   });
 
   $("#questions-btns").hide();
 
   // Get all questions
   getQuestions().then(() => {
-    // Get all evidences 
+    // Get all evidences
     getEvidences().then(() => {
       // Get all faq and load the first question on page load
       getFaq().then(() => {
@@ -454,6 +488,4 @@ $("document").ready(function () {
       });
     });
   });
-
-
 });
