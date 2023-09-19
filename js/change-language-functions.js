@@ -25,9 +25,9 @@ var languageContent = {
     },
     english: {
       languageBtn: "EN",
-      pageTitle: "Mobility Card for Disabled",
-      infoTitle: "Information on the issue of Mobility Cards for disabled 2023",
-      subTitle1: "This questionnaire can help you determine if you are eligible to receive the mobility card for disabled.",
+      pageTitle: "Transportation Card for Disabled",
+      infoTitle: "Information on the issue of Transportation Cards for disabled 2023",
+      subTitle1: "This questionnaire can help you determine if you are eligible to receive the transportation card for disabled.",
       subTitle2: "Completing the questionnaire should not take more than 10 minutes.",
       subTitle3: "We will neither store nor share your answers.",
       backButton: "Βack",

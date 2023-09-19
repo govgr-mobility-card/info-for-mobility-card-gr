@@ -5,55 +5,58 @@ var activeElement;
 document
   .getElementById("read-aloud-button")
   .addEventListener("change", function () {
-
     if (enabledReading) {
       currentIndex = 0;
       window.speechSynthesis.cancel();
-
     } else {
-    $("#nextQuestion").click(function () {
-      if(!enabledReading){
-        window.speechSynthesis.cancel();
-      }else{
-        window.speechSynthesis.cancel();
-        var msg = new SpeechSynthesisUtterance(document.querySelector('[tabindex="5"]').textContent);
-        console.log(msg);
-        window.speechSynthesis.speak(msg);
-      }
-    });
-    $("#backButton").click(function () {
-      if(!enabledReading){
-        window.speechSynthesis.cancel();
-      }else{
-        window.speechSynthesis.cancel();
-        var msg = new SpeechSynthesisUtterance(document.querySelector('[tabindex="5"]').textContent);
-        console.log(msg);
-        window.speechSynthesis.speak(msg);
-      }
-    });
+      $("#nextQuestion").click(function () {
+        if (!enabledReading) {
+          window.speechSynthesis.cancel();
+        } else {
+          window.speechSynthesis.cancel();
+          var msg = new SpeechSynthesisUtterance(
+            document.querySelector('[tabindex="5"]').textContent
+          );
+          console.log(msg);
+          window.speechSynthesis.speak(msg);
+        }
+      });
+      $("#backButton").click(function () {
+        if (!enabledReading) {
+          window.speechSynthesis.cancel();
+        } else {
+          window.speechSynthesis.cancel();
+          var msg = new SpeechSynthesisUtterance(
+            document.querySelector('[tabindex="5"]').textContent
+          );
+          console.log(msg);
+          window.speechSynthesis.speak(msg);
+        }
+      });
     }
     enabledReading = !enabledReading;
   });
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Tab" && enabledReading) {
-      event.preventDefault();
-      if (currentIndex < 20) {
-        window.speechSynthesis.cancel();
-        currentIndex= currentIndex+1;
-        console.log(currentIndex);
-        activeElement = document.querySelector('[tabindex="' + currentIndex + '"]');
-        activeElement.focus();
-        console.log(activeElement.textContent);
-        var msg = new SpeechSynthesisUtterance(activeElement.textContent);
-        window.speechSynthesis.speak(msg);
-      }
-      } else {
-        console.log("No next element found");
-      }
-    });
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Tab" && enabledReading) {
+    event.preventDefault();
+    if (currentIndex < 20) {
+      window.speechSynthesis.cancel();
+      currentIndex = currentIndex + 1;
+      console.log(currentIndex);
+      activeElement = document.querySelector(
+        '[tabindex="' + currentIndex + '"]'
+      );
+      activeElement.focus();
+      console.log(activeElement.textContent);
+      var msg = new SpeechSynthesisUtterance(activeElement.textContent);
+      window.speechSynthesis.speak(msg);
+    }
+  } else {
+    console.log("No next element found");
+  }
+});
 
-   
 //Fonts
 var isFontBig = false;
 

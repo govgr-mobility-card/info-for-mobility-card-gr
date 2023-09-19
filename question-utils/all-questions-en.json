@@ -1,13 +1,13 @@
 [
     {
         "id": 0,
-        "question": "Have you issued a Mobility Card before?",
+        "question": "Have you issued a Transportation Card for disabled before?",
         "options": ["First time issuing it", "I lost it and want to reissue it", "I lost it for the second time and want to reissue it"]
     },
     {
         "id": 1,
         "question": "Are you a permanent and legal resident of Greece?",
-        "options": ["YES", "NO"]
+        "options": ["Yes", "No"]
     },
     {
         "id": 2,
@@ -22,14 +22,14 @@
     {
         "id": 3,
         "question": "Do you have a disability rate of 67% and above or are you entitled to the preferential OPEKA benefit?",
-        "options": ["YES", "NO"]
+        "options": ["Yes", "No"]
     },
     {
         "id": 4,
         "question": "Which of the following categories do you belong to?",
         "options": ["I have a medical certificate",
-                   "I have a decision from EFKA (Social Insurance Institute)", 
-                   "Recipient of disability benefits for disabled people (AMEA) granted by OPEKA (Center for Social Welfare and Solidarity)"
+                   "I have a decision of the administrative director of an insurance institution or the EFKA (Social Insurance Institute)", 
+                   "Recipient of disability benefits for disabled people granted by OPEKA (Center for Social Welfare and Solidarity)"
         ]
     },
     {
