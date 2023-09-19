@@ -1,5 +1,5 @@
 # info-for-mobility-card-gr
-info-for-mobility-card-gr is a web-based dialog system
+info-for-mobility-card-gr is a web-based dialog system that covers the information stage of the public service of the Mobility Card for people with disabilities. This system includes two main functions, a questionnaire and a number of questions (with their answers) that are frequently asked by citizens about this service, known as FAQs. It was created in order to inform citizens whether or not they are eligible for the issuance of a Disabled Person's Mobility Card and to provide information on the documents required.
 
 ## Univeristy Of Macedonia
 This project was created for the needs of our thesis during our undregraduated studies in University of Macedonia. The team consists of 2 students who worked together to write code and compose any deliverable assignments throughout the semester.
@@ -15,10 +15,14 @@ This project was created for the needs of our thesis during our undregraduated s
 
 # Results - Screenshots 
 <div float="left">
-  <b><p>Login Page:</p></b>
-  <img src="screens/login.png" height="450" width="800"/><br><br>
-  <b><p>Main Page (user/patient):</p></b>
-  <img src="screens/user-main.png" height="450" width="800"/><br><br>
-  <b><p>Confirm Appointment Page:</p></b>
-  <img src="screens/conf-appointment.png" height="450" width="800" />
+  <b><p>Homepage:</p></b>
+  <img src="" height="450" width="800"/><br><br>
+  <img src="" height="450" width="800"/><br><br>
+  <b><p>Questionaire - FAQs:</p</b>
+  <img src="" height="450" width="800"/><br><br>
+  <img src="" height="450" width="800"/><br><br>
+  <img src="" height="450" width="800"/><br><br>
+  <b><p>End of questionaire:</p></b>
+  <img src="" height="450" width="800" />
+  <img src="" height="450" width="800"/><br><br>
 </div>
