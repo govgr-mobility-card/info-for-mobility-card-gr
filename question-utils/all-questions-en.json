@@ -58,8 +58,8 @@
     {
         "id": 8,
         "question": "Choose the category you belong to:",
-        "options": ["Individual income is <b>less than</b> 23,000 or family income is <b>less than</b> 29,000 (OPEKA income not included)",
-                   "Individual income is <b>greater than</b> 23,000 or family income is <b>greater than</b> 29,000 (OPEKA income not included)"
+        "options": ["Individual income is <strong>less than</strong> 23,000 or family income is <strong>less than</strong> 29,000 (OPEKA income not included)",
+                   "Individual income is <strong>greater than</strong> 23,000 or family income is <strong>greater than</strong> 29,000 (OPEKA income not included)"
         ]
     }
 ]
