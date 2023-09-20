@@ -1,6 +1,7 @@
 var languageContent = {
     greek: {
       languageBtn: "EL",
+      mainTitle: "Δελτίο Μετακίνησης ΑΜΕΑ",
       pageTitle: "Δελτίο Μετακίνησης ΑΜΕΑ",
       infoTitle: "Πληροφορίες για την χορήγηση Δελτίων Μετακίνησης ΑΜΕΑ 2023",
       subTitle1: "Αυτό το ερωτηματολόγιο μπορεί να σας βοηθήσει να βρείτε αν δικαιούστε να λάβετε το δελτίο μετακίνησης ΑΜΕΑ.",
@@ -25,6 +26,7 @@ var languageContent = {
     },
     english: {
       languageBtn: "EN",
+      mainTitle: "Transportation Card for Disabled",
       pageTitle: "Transportation Card for Disabled",
       infoTitle: "Information on the issue of Transportation Cards for disabled 2023",
       subTitle1: "This questionnaire can help you determine if you are eligible to receive the transportation card for disabled.",
@@ -49,10 +51,12 @@ var languageContent = {
     }
 };
   
-var currentLanguage = "greek"; //Set the initial language
+// Retrieve the selected language from localStorage or set default to "greek"
+var currentLanguage = localStorage.getItem("preferredLanguage") || "greek";
 
 function toggleLanguage() {
     currentLanguage = currentLanguage === "greek" ? "english" : "greek";
+    localStorage.setItem("preferredLanguage", currentLanguage);
     updateContent();
 }
 
@@ -64,3 +68,6 @@ function updateContent() {
         component.textContent = languageContent[currentLanguage][componentName];
     });
 }
+
+// Initialize the content based on the selected language
+updateContent();

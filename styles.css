@@ -210,6 +210,10 @@ border-color:var(--orange);
   color: var(--contrast-color) !important;
 }
 
+#evidences {
+  padding-left: 0.5rem;
+}
+
 #evidences ol {
   list-style: none;
   counter-reset: item;
@@ -217,14 +221,14 @@ border-color:var(--orange);
 #evidences li {
   counter-increment: item;
   margin-bottom: 5px;
-  font-size: 18px;
+  font-size: 1.1em;
 }
 #evidences li:before {
   margin-right: 10px;
   content: counter(item);
   background: #0065b3;
   color: white;
-  width: 1.5em;
+  width: 1.5rem;
   text-align: center;
   display: inline-block;
 }
@@ -233,9 +237,6 @@ border-color:var(--orange);
   background: var(--orange);
 }
 
-.answer{
-  font-size: 20px;
-}
 
 
 

@@ -147,7 +147,7 @@ $("document").ready(function () {
   //text added in the final result
   function setResult(text) {
     const resultWrapper = document.getElementById("resultWrapper");
-    const result = document.createElement("div");
+    const result = document.createElement("h5");
     result.textContent = text;
     resultWrapper.appendChild(result);
   }
@@ -167,10 +167,11 @@ $("document").ready(function () {
         </div>
     `;
 
+    var ft = 12;
     faqData.forEach((faqItem) => {
       var faqSection = document.createElement("details");
       faqSection.className = "govgr-accordion__section";
-      faqSection.tabIndex = 13;
+      faqSection.tabIndex = ft++;
 
       faqSection.innerHTML = `
         <summary class="govgr-accordion__section-summary">
@@ -299,11 +300,11 @@ $("document").ready(function () {
   }
 
   function skipToEnd() {
-    const errorEnd = document.createElement("div");
+    const errorEnd = document.createElement("h5");
     const error =
       currentLanguage === "greek"
-        ? "Λυπούμαστε αλλά δεν δικαιούστε το Δελτίο Μετακίνησης ΑΜΕΑ!"
-        : "We are sorry but you are not entitled to the Disability Mobility Card!";
+        ? "Λυπούμαστε αλλά δεν δικαιούστε το δελτίο μετακίνησης ΑΜΕΑ!"
+        : "We are sorry but you are not entitled to the transportation card for disabled!";
     errorEnd.className = "govgr-error-summary";
     errorEnd.textContent = error;
     $(".question-container").html(errorEnd);
@@ -344,8 +345,8 @@ $("document").ready(function () {
     ) {
       getEvidencesById(10);
       currentLanguage === "greek"
-        ? setResult("Δικαιούται και ο συνοδός")
-        : setResult("The companion is also entitled");
+        ? setResult("Δικαιούται και ο συνοδός.")
+        : setResult("The companion is also entitled.");
     }
 
     if (allAnswers[6] === "2") {
@@ -381,23 +382,22 @@ $("document").ready(function () {
 
   function submitForm() {
     const resultWrapper = document.createElement("div");
-    currentLanguage === "greek"
-      ? $(".question-container").html(
-          "<div class='answer'><b>Είστε δικαιούχος!</b></div>"
-        )
-      : $(".question-container").html(
-          "<div class='answer'><b>You are eligible!</b></div>"
-        );
+    const titleText =
+      currentLanguage === "greek"
+        ? "Είστε δικαιούχος!"
+        : "You are eligible!";
+    resultWrapper.innerHTML = `<h1 class='answer'>${titleText}</h1>`;
     resultWrapper.setAttribute("id", "resultWrapper");
-    $(".question-container").append(resultWrapper);
+    $(".question-container").html(resultWrapper);
+    
     const evidenceListElement = document.createElement("ol");
     evidenceListElement.setAttribute("id", "evidences");
     currentLanguage === "greek"
       ? $(".question-container").append(
-          "<br /><br /><div class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το Δελτίο Μετακίνησης είναι τα εξής:</div><br />"
+          "<br /><br /><h5 class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το δελτίο μετακίνησης είναι τα εξής:</h5><br />"
         )
       : $(".question-container").append(
-          "<br /><br /><div class='answer'>The documents you need to provide in order to receive your Mobility Card are the following:</div><br />"
+          "<br /><br /><h5 class='answer'>The documents you need to provide in order to receive your transportation card are the following:</h5><br />"
         );
     $(".question-container").append(evidenceListElement);
     $("#faqContainer").load("faq.html");
