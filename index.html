@@ -97,13 +97,11 @@
             <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="startBtn">
                 <span class="language-component" data-component="startBtn">Ας ξεκινήσουμε</span>
                 <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
-
-
                     <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
                 </svg>
             </button>
         </div>
-        <a href="#" class="govgr-back-link " id="backButton">
+        <a href="#" class="govgr-back-link " id="backButton" style="display: none">
             <svg class="govgr-caret--left" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18,22V2L6,12L18,22z" />
             </svg>
@@ -113,7 +111,7 @@
             <div class="question-container" tabindex="5">
                 <!-- here we load questions with JQuery -->
             </div>
-            <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion">
+            <button class="govgr-btn govgr-btn-primary govgr-btn-cta" id="nextQuestion" style="display: none;">
                 <span class="language-component" data-component="nextQuestion" tabindex="7">Επόμενη ερώτηση</span>
                 <svg viewBox="0 0 24 24" class="govgr-arrow--right" focusable="false" aria-hidden="true">
                     <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
@@ -162,9 +160,7 @@
             </div>
         </div>
         <p class="text-right">
-            <a tabindex="8" class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button"
-                aria-label="Press to open/close accessibility menu" aria-expanded="false"
-                aria-controls="CollapseExample" title="accessibility-button">
+            <a tabindex="8" class="btn btn-default" data-toggle="collapse" href="#CollapseExample" role="button" aria-label="Press to open/close accessibility menu" aria-expanded="false" aria-controls="CollapseExample" title="accessibility-button">
                 <svg id="accessibility-icon" xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                     role="presentation">
                     <path
@@ -176,7 +172,7 @@
 
     <!-- FAQ -->
     <br /><br />
-    <div id="faqContainer" class="govgr-accordion govgr-width-container faqContainer">
+    <div id="faqContainer" class="govgr-accordion govgr-width-container faqContainer" style="display: none;">
     </div>
 
     <!-- FOOTER  -->

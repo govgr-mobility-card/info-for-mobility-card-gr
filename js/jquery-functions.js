@@ -106,7 +106,6 @@ $("document").ready(function () {
           })
           .catch((error) => {
             console.error("Failed to fetch faq-en:", error);
-
             // Show error message to the user
             const errorMessage = document.createElement("div");
             errorMessage.textContent = "Error: Failed to fetch faq-en.json.";
@@ -115,7 +114,6 @@ $("document").ready(function () {
       })
       .catch((error) => {
         console.error("Failed to fetch faq:", error);
-
         // Show error message to the user
         const errorMessage = document.createElement("div");
         errorMessage.textContent = "Error: Failed to fetch faq.json.";
@@ -202,14 +200,14 @@ $("document").ready(function () {
     );
   }
 
+
   //Εachtime back/next buttons are pressed the form loads a question
   function loadQuestion(questionId, noError) {
-    //If it is the first question, the back button is hidden
-    if (currentQuestion === 0) {
-      $("#backButton").hide();
-    } else {
+    
+    $("#nextQuestion").show();
+    if (currentQuestion > 0) {
       $("#backButton").show();
-    }
+    } 
 
     currentLanguage === "greek"
       ? (question = all_questions[questionId])
@@ -480,11 +478,13 @@ $("document").ready(function () {
   getQuestions().then(() => {
     // Get all evidences
     getEvidences().then(() => {
-      // Get all faq and load the first question on page load
+      // Get all faqs 
       getFaq().then(() => {
         // Code inside this block executes only after all data is fetched
-        loadQuestion(currentQuestion, true);
+        // load  faqs and the first question on page load
         loadFaqs();
+        $("#faqContainer").show();
+        loadQuestion(currentQuestion, true);
       });
     });
   });
