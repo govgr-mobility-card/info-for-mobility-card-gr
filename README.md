@@ -18,11 +18,11 @@ This project was created for the needs of our thesis during our undregraduated s
 # Results - Screenshots 
 <div float="left">
   <b><p>Homepage:</p></b>
-  <img src="screens/start-page-faqs.png" height="450" width="800"/><br><br>
-  <b><p>Questionaire - FAQs:</p</b>
-  <img src="screens/first-question.png" height="450" width="800"/><br><br>
-  <img src="screens/last-question.png" height="450" width="800"/><br><br>
+  <img src="screens/start-page-faqs.png" /><br><br>
+  <b><p>Questionaire - FAQs:</p></b>
+  <img src="screens/first-question.png" /><br><br>
+  <img src="screens/last-question.png" /><br><br>
   <b><p>End of questionaire:</p></b>
-  <img src="screens/eligible-message.png" height="450" width="800" />
-  <img src="screens/not-eligible-message.png" height="450" width="800"/><br><br>
+  <img src="screens/eligible-message.png" />
+  <img src="screens/not-eligible-message.png" /><br><br>
 </div>
