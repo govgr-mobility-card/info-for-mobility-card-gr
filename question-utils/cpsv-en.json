@@ -14,8 +14,8 @@
                     {
                         "id": "ev0009",
                         "type": "Evidence",
-                        "name": "Identification Card of the Interested Party or a photocopy of it",
-                        "description": "Identification Card of the Interested Party or a photocopy of it"
+                        "name": "Identity Card of the Interested Party or a photocopy of it",
+                        "description": "Identity Card of the Interested Party or a photocopy of it"
                     },
                     {
                         "id": "ev0010",
@@ -37,8 +37,8 @@
                     {
                         "id": "ev0013",
                         "type": "Evidence",
-                        "name": "Tax Clearance Certificate",
-                        "description": "Recipients of free movement cards must submit a photocopy of the tax clearance certificate from the relevant Tax Office of the last tax return."
+                        "name": "Ιncome tax statement",
+                        "description": "Recipients of free movement cards must submit a photocopy of the Ιncome tax statement from the relevant Tax Office of the last tax return."
                     }
                 ]
             },
@@ -48,7 +48,7 @@
                     {
                         "id": "ev0002",
                         "type": "Evidence",
-                        "name": "Identification Card of the Guardian or an authorized person",
+                        "name": "Identity Card of the Guardian or an authorized person",
                         "description": "Identity Card of guardian or authorized person."
                     }
                 ]
@@ -81,8 +81,8 @@
                     {
                         "id": "ev0005",
                         "type": "Evidence",
-                        "name": "Medical Committee Opinion",
-                        "description": "Opinions of the Medical Committees under the provisions of PD 611/1977 (Government Gazette A' 198), Article 166 of Law 2683/1999 (Government Gazette A' 19), Articles 165 and 167 of Law 3528/2007 (Government Gazette A' 26), the Social Security Foundation (IKA), the Medical Committees of Article 6 of Law 3863/2010 (Government Gazette A' 115) (Disability Certification Centers - KE.P.A.) as well as those of ASUE, ANUE, AAYE, the Superior Health Committee of the Hellenic Police, the Superior Health Committee of the Fire Brigade (Article 1 of Law 4331/2015) in which the disability percentage is indicated: • Pathological-anatomical disability percentage of at least 67% or • Anatomico-physiological disability percentage of at least 67% or • Disability from a common disease of at least 67% or • Disability of at least 67% or • Pathological-anatomical damage of at least 67% or • Anatomico-physiological damage of at least 67% or • Life-long disability of at least 67%. In the opinions of KE.P.A., the inclusion of the pathological-anatomical percentage is not required. Decisions issued under the provisions of Law 2643/98 are not accepted."
+                        "name": "Medical report of the Health Committee",
+                        "description": "Medical reports of the Health Committees under the provisions of PD 611/1977 (Government Gazette A' 198), Article 166 of Law 2683/1999 (Government Gazette A' 19), Articles 165 and 167 of Law 3528/2007 (Government Gazette A' 26), the Social Security Foundation (IKA), the Medical Committees of Article 6 of Law 3863/2010 (Government Gazette A' 115) (Disability Certification Centers - KE.P.A.) as well as those of ASUE, ANUE, AAYE, the Superior Health Committee of the Hellenic Police, the Superior Health Committee of the Fire Brigade (Article 1 of Law 4331/2015) in which the disability percentage is indicated: • Pathological-anatomical disability percentage of at least 67% or • Anatomico-physiological disability percentage of at least 67% or • Disability from a common disease of at least 67% or • Disability of at least 67% or • Pathological-anatomical damage of at least 67% or • Anatomico-physiological damage of at least 67% or • Life-long disability of at least 67%. In the opinions of KE.P.A., the inclusion of the pathological-anatomical percentage is not required. Decisions issued under the provisions of Law 2643/98 are not accepted."
                     }
                 ]
             },
@@ -103,13 +103,13 @@
                     {
                         "id": "ev0007",
                         "type": "Evidence",
-                        "name": "Certificate of Granting Allowance by OAED",
+                        "name": "Certificate of grant of an allowance from the OPEKA (Single Fund for Social Security)",
                         "description": "Certificate of granting the allowance, for beneficiaries who receive financial assistance (disability allowance) from OAED or the relevant services, without the need for opinions of the Medical Committees. The certificate should indicate the disability percentage, the OAED decision number, the date of the Medical Committee opinion, and the expiration date of the beneficiary's entitlement to receive the allowance."
                     },
                     {
                         "id": "ev0015",
                         "type": "Evidence",
-                        "name": "Certificate of Total Annual Amount of OAED Allowance",
+                        "name": "Certificate of the total annual amount of the allowance from OPEKA",
                         "description": "In order to deduct the monetary amounts received as disability allowances from OAED from the total income, a certificate of the amount to be granted by OAED will be issued by the Community Centers upon a relevant request from the interested party whose income exceeds the above-mentioned income criteria."
                     }
                 ]
@@ -120,7 +120,7 @@
                     {
                         "id": "ev0016",
                         "type": "Evidence",
-                        "name": "Certificate of Loss by Police Authority",
+                        "name": "Proof of loss from a police authority",
                         "description": "In case of loss, which needs to be certified by the police authority, a new travel pass can be issued. However, if the pass is lost for the second time, it cannot be reissued."
                     }
                 ]
@@ -131,7 +131,7 @@
                     {
                         "id": "ev0012",
                         "type": "Evidence",
-                        "name": "Additional Photograph",
+                        "name": "Additional photograph",
                         "description": "Especially for travel pass companions, three identical photos must be submitted, with one of them being affixed to the companion's pass."
                     }
                 ]
@@ -142,7 +142,7 @@
                     {
                         "id": "ev0008",
                         "type": "Evidence",
-                        "name": "Medical Certificate of Hospitalization",
+                        "name": "Medical report of hospitalization",
                         "description": "For citizens of countries outside the EU who have become incapable of work due to a workplace accident in Greek territory, a Medical Certificate of Hospitalization from a Public Hospital is required, certifying the hospitalization following the accident."
                     }
                 ]

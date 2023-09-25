@@ -302,7 +302,7 @@ $("document").ready(function () {
     const error =
       currentLanguage === "greek"
         ? "Λυπούμαστε αλλά δεν δικαιούστε το δελτίο μετακίνησης ΑΜΕΑ!"
-        : "We are sorry but you are not entitled to the transportation card for disabled!";
+        : "We are sorry but you are not entitled to the transportation card for the disabled!";
     errorEnd.className = "govgr-error-summary";
     errorEnd.textContent = error;
     $(".question-container").html(errorEnd);

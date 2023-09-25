@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "question": "Have you issued a transportation card for disabled before?",
+        "question": "Have you issued a transportation card for the disabled before?",
         "options": ["First time issuing it", "I lost it and want to reissue it", "I lost it for the second time and want to reissue it"]
     },
     {
@@ -29,7 +29,7 @@
         "question": "Which of the following categories do you belong to?",
         "options": ["I have a medical certificate",
                    "I have a decision of the administrative director of an insurance institution or the EFKA (Social Insurance Institute)", 
-                   "Recipient of disability benefits for disabled people granted by OPEKA (Center for Social Welfare and Solidarity)"
+                   "Recipient of disability benefits for the disabled people granted by OPEKA (Center for Social Welfare and Solidarity)"
         ]
     },
     {
@@ -50,7 +50,7 @@
     },
     {
         "id": 7,
-        "question": "Choose for which means of transfer you want the transportation card for disabled:",
+        "question": "Choose for which means of transfer you want the transportation card for the disabled:",
         "options": ["For long-distance transportation only",
                    "For all entitlements"
         ]
