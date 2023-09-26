@@ -2,6 +2,28 @@
 var enabledReading = false;
 var currentIndex = 0;
 var activeElement;
+
+function isElementVisible(element) {
+  return element.offsetWidth > 0 && element.offsetHeight > 0;
+}
+
+function readNext(){
+  var ti=6;
+  while (ti<9){
+    activeElement = document.querySelector(
+      '[tabindex="' + ti + '"]'
+    );
+    if(isElementVisible(activeElement)){
+      var msg = new SpeechSynthesisUtterance(
+        activeElement.textContent
+      );
+      console.log(msg);
+      window.speechSynthesis.speak(msg);
+    }
+    ti++;
+  }
+}
+
 document
   .getElementById("read-aloud-button")
   .addEventListener("change", function () {
@@ -9,16 +31,20 @@ document
       currentIndex = 0;
       window.speechSynthesis.cancel();
     } else {
+      $("#startBtn").click(function () {
+        if (!enabledReading) {
+          window.speechSynthesis.cancel();
+        } else {
+          window.speechSynthesis.cancel();
+          readNext();
+        }
+      });
       $("#nextQuestion").click(function () {
         if (!enabledReading) {
           window.speechSynthesis.cancel();
         } else {
           window.speechSynthesis.cancel();
-          var msg = new SpeechSynthesisUtterance(
-            document.querySelector('[tabindex="5"]').textContent
-          );
-          console.log(msg);
-          window.speechSynthesis.speak(msg);
+          readNext();
         }
       });
       $("#backButton").click(function () {
@@ -26,11 +52,7 @@ document
           window.speechSynthesis.cancel();
         } else {
           window.speechSynthesis.cancel();
-          var msg = new SpeechSynthesisUtterance(
-            document.querySelector('[tabindex="5"]').textContent
-          );
-          console.log(msg);
-          window.speechSynthesis.speak(msg);
+          readNext();
         }
       });
     }
@@ -49,8 +71,10 @@ document.addEventListener("keydown", function (event) {
       );
       activeElement.focus();
       console.log(activeElement.textContent);
+     if (isElementVisible(activeElement)){
       var msg = new SpeechSynthesisUtterance(activeElement.textContent);
       window.speechSynthesis.speak(msg);
+     }
     }
   } else {
     console.log("No next element found");

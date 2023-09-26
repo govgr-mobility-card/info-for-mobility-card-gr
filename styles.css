@@ -81,6 +81,8 @@ nav div {
   width: 90px;
   height: 50px;
   font-size: 18px;
+  position: absolute;
+  right: 20px;
 }
 
 /* High Contrast */
@@ -258,8 +260,6 @@ border-color:var(--orange);
   background: var(--contrast-gray);
 }
 
-
-
 @media only screen and (max-width: 900px) {
   #access-menu{
     position: absolute;
@@ -270,6 +270,10 @@ border-color:var(--orange);
 }
 
 @media only screen and (max-width: 893px) {
+
+  #languageBtn{
+    position: relative;
+  }
   .header-row, .govgr-header__content{
     flex-direction: column;
     align-items: center;

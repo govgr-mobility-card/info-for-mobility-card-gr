@@ -160,16 +160,16 @@ $("document").ready(function () {
     var faqElement = document.createElement("div");
 
     faqElement.innerHTML = `
-        <div class="govgr-heading-m language-component" data-component="faq">
+        <div class="govgr-heading-m language-component" data-component="faq" tabIndex="15">
           ${faqTitle}
         </div>
     `;
 
-    var ft = 12;
+    var ft = 16;
     faqData.forEach((faqItem) => {
       var faqSection = document.createElement("details");
       faqSection.className = "govgr-accordion__section";
-      faqSection.tabIndex = ft++;
+      faqSection.tabIndex = ft;
 
       faqSection.innerHTML = `
         <summary class="govgr-accordion__section-summary">
@@ -187,6 +187,7 @@ $("document").ready(function () {
       `;
 
       faqElement.appendChild(faqSection);
+      ft++;
     });
 
     $(".faqContainer").html(faqElement);
