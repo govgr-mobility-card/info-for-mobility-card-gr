@@ -340,7 +340,7 @@ $("document").ready(function () {
     }
     if (
       allAnswers[5] === "1" ||
-      (allAnswers[5] === "2" && allAnswers[8] === "1")
+      (allAnswers[5] === "2")
     ) {
       getEvidencesById(10);
       currentLanguage === "greek"
@@ -357,7 +357,14 @@ $("document").ready(function () {
     }
     if (allAnswers[7] === "1") {
       getEvidencesById(12);
-    } else if (allAnswers[7] === "2") {
+      currentLanguage === "greek"
+      ? setResult(
+          "Δικαιούστε έκπτωση 50% για τις εκτός ορίων της περιφέρειας σας μετακινήσεις με υπεραστικά ΚΤΕΛ."
+        )
+      : setResult(
+          "You are entitled to a 50% discount for transportation outside the boundaries of your region with long-distance bus services (named KTEL)."
+        );
+    } else if (allAnswers[7] === "2" && allAnswers[5] !== "1") {
       getEvidencesById(2);
       if (allAnswers[8] === "1") {
         currentLanguage === "greek"
@@ -376,6 +383,15 @@ $("document").ready(function () {
               "You are entitled to a 50% discount for transportation outside the boundaries of your region with long-distance bus services (named KTEL)."
             );
       }
+    }
+    else if(allAnswers[7] === "2" && allAnswers[5] === "1"){
+      currentLanguage === "greek"
+      ? setResult(
+          "Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της περιφέρειας σου μετακινήσεις με υπεραστικά ΚΤΕΛ."
+        )
+      : setResult(
+          "You are entitled to free transportation with the urban public bus of your region and a 50% discount for transportation outside the boundaries of your region with long-distance (intercity) bus services (named KTEL)."
+        );
     }
   }
 
