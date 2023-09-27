@@ -24,7 +24,7 @@ html, body
 
 #access-menu{
   position: absolute;
-  top: 15%;
+  top:100px;
   right: 10px;
 }
 
@@ -263,7 +263,7 @@ border-color:var(--orange);
 @media only screen and (max-width: 900px) {
   #access-menu{
     position: absolute;
-    top: 30%;
+    top: 200px;
     right: 10px;
   }
 
