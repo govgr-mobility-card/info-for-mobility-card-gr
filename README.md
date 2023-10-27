@@ -10,11 +10,6 @@ This project was created for the needs of our thesis during our undregraduated s
 * [Ampatzidou Elisavet](https://github.com/ElisavetAmpatzidou)
 * [Dasyra Evmorfia-Elpida](https://github.com/evitadasy)
 
-
-# File Structure
-
-## index.html
-
 # Results - Screenshots 
 <div float="left">
   <b><p>Homepage:</p></b>
